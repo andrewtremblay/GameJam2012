@@ -14,6 +14,10 @@
 
 #pragma mark - PhysicsSprite
 @implementation PhysicsSprite
+-(b2Body *) getPhysicsBody
+{
+	return body_;
+}
 
 -(void) setPhysicsBody:(b2Body *)body
 {
