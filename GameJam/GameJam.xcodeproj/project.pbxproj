@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3136375F160017DE003BC4B5 /* SpriteManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3136375E160017DE003BC4B5 /* SpriteManager.mm */; };
 		F0287649160010F0007CFA9E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0287648160010F0007CFA9E /* QuartzCore.framework */; };
 		F028764B160010F0007CFA9E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F028764A160010F0007CFA9E /* OpenGLES.framework */; };
 		F028764D160010F0007CFA9E /* OpenAL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F028764C160010F0007CFA9E /* OpenAL.framework */; };
@@ -191,6 +192,8 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3136375D160017DE003BC4B5 /* SpriteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteManager.h; path = Managers/SpriteManager.h; sourceTree = "<group>"; };
+		3136375E160017DE003BC4B5 /* SpriteManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SpriteManager.mm; path = Managers/SpriteManager.mm; sourceTree = "<group>"; };
 		F0287644160010F0007CFA9E /* GameJam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameJam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0287648160010F0007CFA9E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F028764A160010F0007CFA9E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1184,6 +1187,8 @@
 		F028788A16001565007CFA9E /* Managers */ = {
 			isa = PBXGroup;
 			children = (
+				3136375D160017DE003BC4B5 /* SpriteManager.h */,
+				3136375E160017DE003BC4B5 /* SpriteManager.mm */,
 				F028788B16001584007CFA9E /* EventsManager.h */,
 				F028788C16001584007CFA9E /* EventsManager.m */,
 				F028788E16001592007CFA9E /* ControlManager.h */,
@@ -1423,6 +1428,7 @@
 				F028788D16001584007CFA9E /* EventsManager.m in Sources */,
 				F028789016001592007CFA9E /* ControlManager.m in Sources */,
 				F0287893160016AD007CFA9E /* GameLayer.mm in Sources */,
+				3136375F160017DE003BC4B5 /* SpriteManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1528,6 +1534,7 @@
 				F028787A160010F3007CFA9E /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
