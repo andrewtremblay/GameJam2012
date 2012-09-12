@@ -8,7 +8,10 @@
 
 
 #import "PhysicsSprite.h"
-
+#import <GLKit/GLKit.h>
+#import "cocos2d.h"
+#import "Box2D.h"
+#import "GLES-Render.h"
 // Needed PTM_RATIO
 #import "GameLayer.h"
 
@@ -64,6 +67,39 @@
 {
 	// 
 	[super dealloc];
+}
+
+- (void)draw {
+    glColor4f(0.0f, 1.0f, 0.0f, 1.0f);
+    CGSize s = CGSizeMake(150, 200);
+    CGPoint vertices[8]={
+        ccp(50,50),ccp(s.width,0),
+        ccp(s.width,s.height),ccp(0,s.height),
+    };
+    ccFillPoly(vertices, 8, YES);
+
+}
+
+void ccFillPoly( CGPoint *poli, int points, BOOL closePolygon )
+{
+    // Default GL states: GL_TEXTURE_2D, GL_VERTEX_ARRAY, GL_COLOR_ARRAY, GL_TEXTURE_COORD_ARRAY
+    // Needed states: GL_VERTEX_ARRAY,
+    // Unneeded states: GL_TEXTURE_2D, GL_TEXTURE_COORD_ARRAY, GL_COLOR_ARRAY
+    glDisable(GL_TEXTURE_2D);
+    glDisableClientState(GL_TEXTURE_COORD_ARRAY);
+    glDisableClientState(GL_COLOR_ARRAY);
+    
+    glVertexPointer(2, GL_FLOAT, 0, poli);
+    if( closePolygon )
+        //	 glDrawArrays(GL_LINE_LOOP, 0, points);
+        glDrawArrays(GL_TRIANGLE_FAN, 0, points);
+    else
+        glDrawArrays(GL_LINE_STRIP, 0, points);
+    
+    // restore default state
+    glEnableClientState(GL_COLOR_ARRAY);
+    glEnableClientState(GL_TEXTURE_COORD_ARRAY);
+    glEnable(GL_TEXTURE_2D);
 }
 
 @end

@@ -7,6 +7,8 @@
 //
 #import "PhysicsSprite.h"
 #import "SpriteManager.h"
+
+
 static SpriteManager* s_spriteManager;
 
 @implementation SpriteManager
@@ -28,12 +30,27 @@ static SpriteManager* s_spriteManager;
     CGSize s = [CCDirector sharedDirector].winSize;
     //Set up spritesheet and CCSpriteBatchNode
     // Use batch node. Faster
-    CCSpriteBatchNode *parent = [CCSpriteBatchNode batchNodeWithFile:@"blocks.png" capacity:100];
+    CCSpriteBatchNode *parent = [CCSpriteBatchNode batchNodeWithFile:@"blackTexture.png" capacity:100];
     self.spriteTexture = [parent texture];
     [self.worldLayer addChild:parent z:0 tag:kTagParentNode];
 
-    [self addNewSpriteAtPosition:ccp(s.width/2, s.height/2)]; //delete this, but good for debugging
+//    [self addNewSpriteAtPosition:ccp(s.width/2, s.height/2)]; //delete this, but good for debugging
 
+}
+
+- (CharacterSprite *)addCharacterAtPosition:(CGPoint)p
+{
+    CCNode *parent = [self.worldLayer getChildByTag:kTagParentNode];
+    CharacterSprite* cSprite = [[CharacterSprite alloc] initWithTexture:self.spriteTexture];
+    [parent addChild:cSprite];
+    cSprite.position = ccp(p.x,p.y);
+    
+    [cSprite updatePhysicsBoxWithPoint:p numberOfVertex:3];
+    return cSprite;
+}
+
+-(void) createDynamicPoly {
+    
 }
 
 -(void) addNewSpriteAtPosition:(CGPoint)p
@@ -45,7 +62,7 @@ static SpriteManager* s_spriteManager;
 	//just randomly picking one of the images
 	int idx = (CCRANDOM_0_1() > .5 ? 0:1);
 	int idy = (CCRANDOM_0_1() > .5 ? 0:1);
-	PhysicsSprite *sprite = [PhysicsSprite spriteWithTexture:self.spriteTexture rect:CGRectMake(32 * idx,32 * idy,32,32)];						
+	PhysicsSprite *sprite = [PhysicsSprite spriteWithTexture:self.spriteTexture rect:CGRectMake(32 * idx,32 * idy,32,32)];
 	[parent addChild:sprite];
 	
 	sprite.position = ccp( p.x, p.y);
@@ -69,6 +86,7 @@ static SpriteManager* s_spriteManager;
 	body->CreateFixture(&fixtureDef);
 	
 	[sprite setPhysicsBody:body];
+    
 }
 
 @end

@@ -138,7 +138,8 @@
 		
 		location = [[CCDirector sharedDirector] convertToGL: location];
 		
-		[[SpriteManager shared] addNewSpriteAtPosition: location];
+		[[SpriteManager shared] addCharacterAtPosition:location];
+        
 	}
 }
 
