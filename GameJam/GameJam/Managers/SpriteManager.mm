@@ -61,6 +61,8 @@ static SpriteManager* s_spriteManager;
         [parent addChild:sprite];
         sprite.position = ccp(p.x,p.y);
         [sprite updatePhysicsBoxWithPoint:p];
+        [self.bulletArray addObject:sprite];
+
         return sprite;
     }
 
@@ -85,7 +87,7 @@ static SpriteManager* s_spriteManager;
         sprite.position = ccp(p.x,p.y);
         [sprite updatePhysicsBoxWithPoint:p numberOfVertex:3];
         
-        [[self enemiesArray] addObject:sprite]; 
+        [self.enemiesArray addObject:sprite]; 
         
         return sprite;
     }
@@ -182,29 +184,31 @@ static SpriteManager* s_spriteManager;
                 [self removePhysicsSprite:pS];
             }
         }
-        
         [self.powerUpArray removeObjectsInArray:toRemove];
     }
 
     -(void)cleanEnemyCorpses
     {
+        NSMutableArray *toRemove = [NSMutableArray array]; 
         for (MinionSprite* mS in self.enemiesArray) {
             if (mS.dead) {
-                
+                [toRemove addObject:mS];
+                [self removePhysicsSprite:mS];
             }
         }
-        
+        [self.enemiesArray removeObjectsInArray:toRemove];
     }
 
     -(void)cleanBullets
     {
-        
+        NSMutableArray *toRemove = [NSMutableArray array]; 
         for (BulletSprite* bS in self.bulletArray) {
             if (bS.shot) {
-                
+                [toRemove addObject:bS];
+                [self removePhysicsSprite:bS];
             }
         }
-        
+        [self.bulletArray removeObjectsInArray:toRemove];
     }
 
 

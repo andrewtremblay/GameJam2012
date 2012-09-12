@@ -26,6 +26,11 @@
     +(EventsManager*)shared;
     -(b2ContactListener *)makeSpriteListener;
     @property (assign, nonatomic) b2ContactListener* spriteContactListener;
+    #pragma mark - BIG EVENTS
+    -(void)GAME_BEGIN;
+    -(void)GAME_OVER;
+
+
     #pragma mark - "AI" "behavior"
     //if this gets too complicated move it out to an AIManager
     #pragma mark AI reactions

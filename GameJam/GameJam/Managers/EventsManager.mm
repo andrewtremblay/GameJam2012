@@ -29,6 +29,30 @@ static EventsManager* s_eventsManager;
         return self.spriteContactListener;        
     }
 
+
+    #pragma mark - BIG EVENTS
+    -(void)GAME_BEGIN
+    {
+
+    }
+
+    -(void)GAME_OVER
+    {
+
+    }
+
+    -(void)GAME_PAUSE
+    {
+    
+    }
+
+    -(void)GAME_RESUME
+    {
+        
+    }
+
+
+
     #pragma mark - "AI" "behavior"
     #pragma mark AI reactions
     -(void)enemiesSeekToPoint:(CGPoint) destPoint
@@ -53,13 +77,24 @@ static EventsManager* s_eventsManager;
 #pragma mark collision handling
 -(void)aCharacterSprite:(CharacterSprite*)charSprite hitEnemy:(MinionSprite*)enemySprite
 {
-    NSLog(@"CHAR HIT ENEMY / ENEMY HIT CHAR");
+    //NSLog(@"CHAR HIT ENEMY / ENEMY HIT CHAR");
     //you have game logic now
+    if(!enemySprite.dead){
+        if(charSprite.vertCount > 3){
+            int newVertCount = charSprite.vertCount - 1;
+            [charSprite setVertCount:newVertCount];
+            enemySprite.dead = YES;
+        }else{
+            
+            //GAME OVER, or not, maybe invincibility?
+            [[EventsManager shared] GAME_OVER];
+        }
+    }
 }
 
 -(void)aCharacterSprite:(CharacterSprite*)charSprite hitPowerup:(PowerUpSprite*)powerUpSprite
 {
-    NSLog(@"CHAR HIT ITEM / ITEM HIT CHAR");
+    //NSLog(@"CHAR HIT ITEM / ITEM HIT CHAR");
     if(!powerUpSprite.spent){
         powerUpSprite.spent = true;
         [charSprite setVertCount:4];
@@ -68,7 +103,13 @@ static EventsManager* s_eventsManager;
 
 -(void)aBulletSprite:(BulletSprite*)bulletSprite hitEnemy:(MinionSprite*)enemySprite
 {
-    NSLog(@"ENEMY HIT BULLET / BULLET HIT ENEMY");
+    //NSLog(@"ENEMY HIT BULLET / BULLET HIT ENEMY");
+    if(!bulletSprite.shot){
+        bulletSprite.shot = YES;
+        if(!enemySprite.dead){
+            enemySprite.dead = YES;
+        }
+    }
 }
 
 -(void)cleanUpCollisions
