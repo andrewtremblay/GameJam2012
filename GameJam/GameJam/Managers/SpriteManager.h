@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "GameLayer.h"
+#import "PhysicsSprite.h"
 #import "CharacterSprite.h"
 #import "MinionSprite.h"
 #import "PowerUpSprite.h"
@@ -19,6 +20,8 @@
     @property (strong, nonatomic) GameLayer *worldLayer;
 
     @property (strong, nonatomic) NSMutableArray *enemiesArray;
+    @property (strong, nonatomic) NSMutableArray *bulletArray;
+    @property (strong, nonatomic) NSMutableArray *powerUpArray;
 
 #pragma mark Makers
     -(void)makeNewSpriteAtPosition:(CGPoint)p;
@@ -31,6 +34,9 @@
     -(void)stopAllEnemies;
     -(void)updateAllEnemySeekPosition:(CGPoint)p; //no flags for this, just setting velocity
     -(void)updateAllEnemyAvoidPosition:(CGPoint)p;
+
+-(void)removePhysicsSprite:(PhysicsSprite*)spriteToRemove;
+
 
 #pragma mark Cleanups
     -(void)cleanSpentPowerups;

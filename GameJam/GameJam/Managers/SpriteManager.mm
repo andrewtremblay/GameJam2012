@@ -18,7 +18,8 @@ static SpriteManager* s_spriteManager;
     @synthesize worldLayer = _worldLayer;
 
     @synthesize enemiesArray = _enemiesArray;
-
+    @synthesize bulletArray = _bulletArray;
+    @synthesize powerUpArray = _powerUpArray;
 
     +(SpriteManager*)shared {
         static dispatch_once_t onceToken;
@@ -37,6 +38,8 @@ static SpriteManager* s_spriteManager;
         self.spriteTexture = [parent texture];
         [self.worldLayer addChild:parent z:0 tag:kTagParentNode];
         self.enemiesArray = [NSMutableArray array];
+        self.bulletArray = [NSMutableArray array];
+        self.powerUpArray = [NSMutableArray array];
     //    CGSize s = [CCDirector sharedDirector].winSize;
     //    [self addNewSpriteAtPosition:ccp(s.width/2, s.height/2)]; //delete this, but good for debugging
     }
@@ -68,6 +71,9 @@ static SpriteManager* s_spriteManager;
         [parent addChild:sprite];
         sprite.position = ccp(p.x,p.y);
         [sprite updatePhysicsBoxWithPoint:p];
+        
+        [self.powerUpArray addObject:sprite];
+        
         return sprite;
     }
 
@@ -95,7 +101,7 @@ static SpriteManager* s_spriteManager;
         int idy = (CCRANDOM_0_1() > .5 ? 0:1);
         PhysicsSprite *sprite = [PhysicsSprite spriteWithTexture:self.spriteTexture rect:CGRectMake(32 * idx,32 * idy,32,32)];
         [parent addChild:sprite];
-        
+   
         sprite.position = ccp( p.x, p.y);
         
         // Define the dynamic body.
@@ -128,9 +134,9 @@ static SpriteManager* s_spriteManager;
 
     -(void)updateAllEnemySeekPosition:(CGPoint)p;
     {
-//        NSLog(@"updateAllEnemySeekPosition:");        
-//        NSLog(@"meters: %f , %f", p.x, p.y);
-//        NSLog(@"pixels: %f , %f", p.x*PTM_RATIO, p.y*PTM_RATIO);
+//NSLog(@"updateAllEnemySeekPosition:");        
+//NSLog(@"meters: %f , %f", p.x, p.y);
+//NSLog(@"pixels: %f , %f", p.x*PTM_RATIO, p.y*PTM_RATIO);
         for(MinionSprite* enemySprite in self.enemiesArray){
             //calc velocity (look into gravity instead?)
             CGPoint adjustedPoint = ccp(p.x/PTM_RATIO, p.y/PTM_RATIO);
@@ -155,19 +161,49 @@ static SpriteManager* s_spriteManager;
         NSLog(@"updateAllEnemyAvoidPosition");
     }
 
+    -(void)removePhysicsSprite:(PhysicsSprite *)spriteToRemove
+    {
+        CCNode *parent = [self.worldLayer getChildByTag:kTagParentNode];
+        if(spriteToRemove.getPhysicsBody){
+            spriteToRemove.getPhysicsBody->SetActive(false);
+            [SpriteManager shared].worldLayer.getWorld->DestroyBody(spriteToRemove.getPhysicsBody);
+        }
+        [parent removeChild:spriteToRemove cleanup:YES];
+    }
+
+
 #pragma mark Cleanups
     -(void)cleanSpentPowerups
     {
+        NSMutableArray *toRemove = [NSMutableArray array]; 
+        for (PowerUpSprite* pS in self.powerUpArray) {
+            if (pS.spent) {
+                [toRemove addObject:pS];
+                [self removePhysicsSprite:pS];
+            }
+        }
         
+        [self.powerUpArray removeObjectsInArray:toRemove];
     }
 
     -(void)cleanEnemyCorpses
     {
+        for (MinionSprite* mS in self.enemiesArray) {
+            if (mS.dead) {
+                
+            }
+        }
         
     }
 
     -(void)cleanBullets
     {
+        
+        for (BulletSprite* bS in self.bulletArray) {
+            if (bS.shot) {
+                
+            }
+        }
         
     }
 

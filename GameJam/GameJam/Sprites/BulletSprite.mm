@@ -10,6 +10,8 @@
 
 @implementation BulletSprite
 @synthesize velocity = _velocity;
+@synthesize shot = _shot;
+
 - (void)updatePhysicsBoxWithPoint:(CGPoint)p {
     
     b2BodyDef bodyDefPoly;

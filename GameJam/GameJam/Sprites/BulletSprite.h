@@ -13,6 +13,7 @@
 
 @interface BulletSprite : PhysicsSprite
 @property (nonatomic, assign)CGPoint velocity;
+@property (nonatomic, assign)BOOL shot;
 
 - (void)updatePhysicsBoxWithPoint:(CGPoint)p;
 
