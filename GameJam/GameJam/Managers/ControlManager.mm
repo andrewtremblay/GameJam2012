@@ -33,15 +33,74 @@ static ControlManager* s_controlManager;
     return s_controlManager;
 }
 
+
+//control agnostic behavior
+
 -(void)moveCharToPoint:(CGPoint)p
 {
     [self.charSprite setPosition:p];
 }
 
+-(void)shootAtPoint:(CGPoint)p
+{
+
+}
+
+-(void)moveInDirection:(CGPoint)p
+{
+
+}
+
+-(void)shootInDirection:(CGPoint)p
+{
+    
+}
+
+-(void)setCharVelocity:(CGPoint)p
+{
+    float vx = p.x;
+    float vy = p.y;
+    CCSpeed *action;
+    // set ball velocity by the incoming point
+    self.charSprite.getPhysicsBody->SetLinearVelocity(b2Vec2(vx,vy)+self.charSprite.getPhysicsBody->GetLinearVelocity());
+    float vel;
+    vel = self.charSprite.getPhysicsBody->GetLinearVelocity().Normalize();
+    [action setSpeed:vel];
+    
+    action = (CCSpeed *)[CCSpeed actionWithAction:[CCActionInterval actionWithDuration:1.0f] speed:(0.0f)];
+
+    [self.charSprite runAction:action]; //action will run next timestep
+}
+
+-(void)setCharDirection:(CGPoint)p //CGPointZero will try to use velocity of char for direction
+{
+    if(CGPointEqualToPoint(p, CGPointZero)){
+        // rotation by velocity, (should be immediate)
+        b2Vec2 vec = self.charSprite.getPhysicsBody->GetLinearVelocity();
+        [self.charSprite setRotation:(-1*CC_RADIANS_TO_DEGREES(ccpToAngle(CGPointMake(vec.x, vec.y))))];
+    }else {
+        // rotation by point, (should be immediate)
+        [self.charSprite setRotation:(-1*CC_RADIANS_TO_DEGREES(ccpToAngle(p)))];
+    }
+}
+
+//interaction handlers
 
 
+//tilt handling
 
-//touch handling
+
+//touch/swipe handling
+- (void)pressFoundAtPoint:(CGPoint)p
+{
+    
+}
+
+- (void)swipeFoundInDirection:(CGPoint)p
+{
+    
+}
+
 -(void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     for (UITouch *touch in touches){
