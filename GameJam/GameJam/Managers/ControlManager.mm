@@ -126,38 +126,34 @@ static ControlManager* s_controlManager;
 //touch/swipe handling
 - (void)pressFoundAtPoint:(CGPoint)p
 {
-    CGPoint vel = CGPointZero;
+    [self setCharVelocityRelativeToPress:p];
+//    [self moveCharToPoint:p];
+}
+
+-(void)setCharVelocityRelativeToPress:(CGPoint)pointOfPress
+{
+    CGPoint adjustedPoint = ccp(pointOfPress.x/PTM_RATIO, pointOfPress.y/PTM_RATIO);
+    b2Vec2 charPos = self.charSprite.getPhysicsBody->GetPosition();
     
-    [self moveCharToPoint:p];
-//    float grabbedDistance = distanceBetweenPoints(point,ccp(grabbedFruit.body->GetPosition().x*PTM_RATIO, grabbedFruit.body->GetPosition().y*PTM_RATIO));
-//    for(int i=0; i < GetPosition().x*PTM_RATIO, fruit.body->GetPosition().y*PTM_RATIO),point);
-//    if(thisDistance < grabbedDistance){
-//        grabbedFruit = fruit;
-//        grabbedDistance = thisDistance;
-//    }
-//    CGPoint charPos  = [self.charSprite convertToWorldSpace: self.charSprite.position];
-//    b2Body *b = self.charSprite.getPhysicsBody;
-//    b2Vec2 bodyPos = b->GetPosition();
-//    charPos = CGPointMake(bodyPos.x, bodyPos.y);
-////    if(charPos.x < p.x){
-////        vel.x = kCharMaxSpeed;
-//////        vel.x = (charPos.x - p.x);
-////    }else{
-////        vel.x = -kCharMaxSpeed;
-//////        vel.x = (p.x - charPos.x);
-////    }
-//    
-//    if(charPos.y > p.y){
+    
+    CGPoint vel = CGPointZero;
+    if(fabsf(charPos.x - adjustedPoint.x) > 1){
+        vel.x = (adjustedPoint.x - charPos.x);
+    }
+    if(fabsf(charPos.y - adjustedPoint.y) > 1){
+        vel.y = (adjustedPoint.y - charPos.y);
+    }
+//    if(charPos.y < p.y){
 //        vel.y = kCharMaxSpeed;
 ////        vel.y = (charPos.y - p.y);
-//    }else {
+//    }else if(charPos.y > p.y){
 //        vel.y = -kCharMaxSpeed;
 ////        vel.y = (p.y - charPos.y);
 //    }
-//    vel.x = clampf(vel.x, -kCharMaxSpeed, kCharMaxSpeed);
-//    vel.y = clampf(vel.y, -kCharMaxSpeed, kCharMaxSpeed);
+    vel.x = clampf(vel.x, -kCharMaxSpeed, kCharMaxSpeed);
+    vel.y = clampf(vel.y, -kCharMaxSpeed, kCharMaxSpeed);
     
-//    [self setCharVelocity:vel];
+    [self setCharVelocity:vel];
 //    [self setCharDirection:CGPointZero]; 
 
 }
@@ -186,10 +182,9 @@ static ControlManager* s_controlManager;
         location = [[CCDirector sharedDirector] convertToGL:location];
         _endPoint = location;
     }
-
+    [self pressFoundAtPoint:_endPoint];
     if (ccpLengthSQ(ccpSub(_startPoint, _endPoint)) > 25)
     {        
-        [self pressFoundAtPoint:_endPoint];
 
         //have a minimum/maximum drag distance, for performance
         _startPoint = _endPoint;

@@ -37,9 +37,15 @@ enum {
 -(void)shootInDirection:(CGPoint)p;//TODO, VECTOR PROBABLY
 
 
+
+-(void)setCharVelocityRelativeToPress:(CGPoint)pointOfPress;
+
+
 //interaction handlers
 - (void)pressFoundAtPoint:(CGPoint)p;
 - (void)swipeFoundInDirection:(CGPoint)p; //TODO, VECTOR PROBABLY
+
+
 
 - (void)touchesBegan:(NSSet *)touches withEvent:(UIEvent *)event;
 - (void)touchesMoved:(NSSet *)touches withEvent:(UIEvent *)event;

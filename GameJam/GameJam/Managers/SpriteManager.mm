@@ -102,7 +102,7 @@ static SpriteManager* s_spriteManager;
 	// Define the dynamic body.
 	//Set up a 1m squared box in the physics world
 	b2BodyDef bodyDef;
-	bodyDef.type = b2_kinematicBody;//b2_dynamicBody;
+	bodyDef.type = b2_dynamicBody;//b2_dynamicBody; //b2_kinematicBody
 	bodyDef.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
 	b2Body *body = self.worldLayer.getWorld->CreateBody(&bodyDef);
 	

@@ -26,7 +26,7 @@
     
     
     b2BodyDef bodyDefPoly;
-    bodyDefPoly.type = b2_kinematicBody;//b2_dynamicBody;
+    bodyDefPoly.type = b2_dynamicBody;//b2_dynamicBody; //b2_kinematicBody
     bodyDefPoly.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
     b2Body *polyBody = [SpriteManager shared].worldLayer.getWorld->CreateBody(&bodyDefPoly);
     
