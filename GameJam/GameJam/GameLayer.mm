@@ -13,6 +13,7 @@
 
 #import "PhysicsSprite.h"
 #import "SpriteManager.h"
+#import "ControlManager.h"
 
 
 
@@ -130,19 +131,6 @@
 	world->Step(dt, velocityIterations, positionIterations);
 }
 
-- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
-{
-	//Add a new body/atlas sprite at the touched location
-	for( UITouch *touch in touches ) {
-		CGPoint location = [touch locationInView: [touch view]];
-		
-		location = [[CCDirector sharedDirector] convertToGL: location];
-		
-		[[SpriteManager shared] addCharacterAtPosition:location];
-        
-	}
-}
-
 
 -(void) initGroundBody
 {
@@ -175,6 +163,35 @@
 {
     return world;
 }
+
+
+
+//control callbacks
+-(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[ControlManager shared] touchesBegan:touches withEvent:event];
+}
+
+-(void)ccTouchesMoved:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[ControlManager shared] touchesMoved:touches withEvent:event];
+}
+
+
+- (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
+{
+    [[ControlManager shared] touchesEnded:touches withEvent:event];
+//debug, keep for now
+	//Add a new body/atlas sprite at the touched location
+	for( UITouch *touch in touches ) {
+		CGPoint location = [touch locationInView: [touch view]];
+		
+		location = [[CCDirector sharedDirector] convertToGL: location];
+		
+		[[SpriteManager shared] addNewSpriteAtPosition: location];
+	}
+}
+
 
 
 @end
