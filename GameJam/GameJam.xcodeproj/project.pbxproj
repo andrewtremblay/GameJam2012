@@ -181,6 +181,7 @@
 		F0287870160010F3007CFA9E /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = F028786F160010F3007CFA9E /* GLES-Render.mm */; };
 		F0287873160010F3007CFA9E /* PhysicsSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = F0287872160010F3007CFA9E /* PhysicsSprite.mm */; };
 		F0287875160010F3007CFA9E /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = F0287874160010F3007CFA9E /* blocks.png */; };
+		F028787C16001277007CFA9E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F028787B16001277007CFA9E /* GLKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -545,6 +546,7 @@
 		F0287871160010F3007CFA9E /* PhysicsSprite.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = PhysicsSprite.h; sourceTree = "<group>"; };
 		F0287872160010F3007CFA9E /* PhysicsSprite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PhysicsSprite.mm; sourceTree = "<group>"; };
 		F0287874160010F3007CFA9E /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
+		F028787B16001277007CFA9E /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -552,6 +554,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F028787C16001277007CFA9E /* GLKit.framework in Frameworks */,
 				F0287649160010F0007CFA9E /* QuartzCore.framework in Frameworks */,
 				F028764B160010F0007CFA9E /* OpenGLES.framework in Frameworks */,
 				F028764D160010F0007CFA9E /* OpenAL.framework in Frameworks */,
@@ -587,6 +590,7 @@
 		F0287647160010F0007CFA9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				F028787B16001277007CFA9E /* GLKit.framework */,
 				F0287648160010F0007CFA9E /* QuartzCore.framework */,
 				F028764A160010F0007CFA9E /* OpenGLES.framework */,
 				F028764C160010F0007CFA9E /* OpenAL.framework */,
