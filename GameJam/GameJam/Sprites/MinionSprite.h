@@ -7,7 +7,16 @@
 //
 
 #import "CCSprite.h"
+#import "PhysicsSprite.h"
+#import <GLKit/GLKit.h>
+#import "SpriteManager.h"
 
-@interface MinionSprite : CCSprite
+@interface MinionSprite : PhysicsSprite
 
+
+@property (nonatomic, assign)b2Vec2* vert;
+@property (nonatomic, assign) int vertCount;
+
+- (void)updatePhysicsBoxWithPoint:(CGPoint)p numberOfVertex:(int)count;
+- (void)createBullets;
 @end

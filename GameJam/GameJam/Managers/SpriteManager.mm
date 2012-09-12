@@ -47,6 +47,39 @@ static SpriteManager* s_spriteManager;
     [cSprite updatePhysicsBoxWithPoint:p numberOfVertex:4];
     return cSprite;
 }
+- (BulletSprite *)makeBulletAtPosition:(CGPoint)p
+{
+    CCNode *parent = [self.worldLayer getChildByTag:kTagParentNode];
+    BulletSprite* sprite = [[BulletSprite alloc] initWithTexture:self.spriteTexture];
+    [parent addChild:sprite];
+    sprite.position = ccp(p.x,p.y);
+    
+    [sprite updatePhysicsBoxWithPoint:p];
+    return sprite;
+}
+
+- (PowerUpSprite *)makePowerUpAtPosition:(CGPoint)p
+{
+    CCNode *parent = [self.worldLayer getChildByTag:kTagParentNode];
+    PowerUpSprite* sprite = [[PowerUpSprite alloc] initWithTexture:self.spriteTexture];
+    [parent addChild:sprite];
+    sprite.position = ccp(p.x,p.y);
+    
+    [sprite updatePhysicsBoxWithPoint:p];
+    return sprite;
+}
+
+- (MinionSprite *)addMinionAtPosition:(CGPoint)p
+{
+    CCNode *parent = [self.worldLayer getChildByTag:kTagParentNode];
+    MinionSprite* sprite = [[MinionSprite alloc] initWithTexture:self.spriteTexture];
+    [parent addChild:sprite];
+    sprite.position = ccp(p.x,p.y);
+    
+    [sprite updatePhysicsBoxWithPoint:p numberOfVertex:3];
+    return sprite;
+}
+
 
 -(void) createDynamicPoly {
     
