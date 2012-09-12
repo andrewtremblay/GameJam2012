@@ -19,7 +19,7 @@
 
 
 
-#pragma mark - HelloWorldLayer
+#pragma mark - GameLayer
 
 @interface GameLayer()
 -(void)initSmorgasboard;//debug, doesn't belong with the rest of the inits  
@@ -29,41 +29,28 @@
 @implementation GameLayer
 +(CCScene *) scene
 {
-	// 'scene' is an autorelease object.
-	CCScene *scene = [CCScene node];
-	
-	// 'layer' is an autorelease object.
-	GameLayer *layer = [GameLayer node];
-	
-	// add layer as a child to scene
-	[scene addChild: layer];
-	
-	// return the scene
-	return scene;
+	CCScene *scene = [CCScene node];	// 'scene' is an autorelease object.
+	GameLayer *layer = [GameLayer node];	// 'layer' is an autorelease object.
+	[scene addChild: layer];	// add layer as a child to scene
+	return scene;	// return the scene
 }
 
 -(id) init
 {
 	if( (self=[super init])) {
-		
-		// enable events
-		
+		[[EventsManager shared] GAME_BEGIN];
 		self.isTouchEnabled = YES;
 		self.isAccelerometerEnabled = YES;
-		
-		// init physics
-		[self initPhysics];
+        [self initPhysics];
         //pass the important stuff to the singletons
         //we need the world layer to make sprites good
         [[SpriteManager shared] setWorldLayer:self]; 
-        
         b2ContactListener *collisions = [[EventsManager shared] makeSpriteListener]; //reference also stored in singleton
         world->SetContactListener(collisions);
         
         [self initPlayer];
         [self initSmorgasboard];
-
-		[self scheduleUpdate];
+        [self scheduleUpdate];
 	}
 	return self;
 }
@@ -82,55 +69,40 @@
 
 -(void) draw
 {
-	//
-	// IMPORTANT:
 	// This is only for debug purposes
 	// It is recommend to disable it
-	//
 	[super draw];
-	
 	ccGLEnableVertexAttribs( kCCVertexAttribFlag_Position );
-	
 	kmGLPushMatrix();
-	
 	world->DrawDebugData();
-	
 	kmGLPopMatrix();
 }
 
 -(void) update: (ccTime) dt
 {
-	//It is recommended that a fixed time step is used with Box2D for stability
-	//of the simulation, however, we are using a variable time step here.
-	//You need to make an informed choice, the following URL is useful
 	//http://gafferongames.com/game-physics/fix-your-timestep/
-	
-	int32 velocityIterations = 8;
-	int32 positionIterations = 1;
-	
 	// Instruct the world to perform a single step of simulation. It is
 	// generally best to keep the time step and iterations fixed.
-	world->Step(dt, velocityIterations, positionIterations);
-    
+    int32 velIt = kVelocityIterations;    int32 posIt = kPositionIterations;
+	world->Step(dt, velIt, posIt);
     //update charsprite position(move/abstract this somewhere else, probably)
     CharacterSprite *cS = [[ControlManager shared] charSprite];
     [[EventsManager shared] aCharacterSprite:cS movedToPoint:cS.positionPixels];
     [cS safeUpdateVertices];
-    
     [[EventsManager shared] cleanUpCollisions];
-
 }
 
 
 
-//Getters
+#pragma mark Getters
 -(b2World*)getWorld
 {
     return world;
 }
 
 
-//control callbacks (easier for ControlManager)
+#pragma mark - control callbacks 
+//(easier for ControlManager)
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [[ControlManager shared] touchesBegan:touches withEvent:event];

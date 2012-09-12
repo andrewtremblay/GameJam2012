@@ -29,5 +29,7 @@
 #define kEnemyCollideMask    kMainCharCategoryBit | kBulletCategoryBit
 #define kPowerupCollideMask  kMainCharCategoryBit
 
+#define kVelocityIterations 8;
+#define kPositionIterations 1;
 
 #endif

@@ -25,6 +25,9 @@
 @synthesize vertCount = _vertCount; //alweays holds the most up to date desired vert count
 @synthesize lastVertCount = _lastVertCount; //for update safety/speed
 
+@synthesize bulletVectors = _bulletVectors;
+
+
 @synthesize polygon = _polygon;
 @synthesize bodyDefPoly = _bodyDefPoly;
 @synthesize fixtureDefPoly = _fixtureDefPoly;
@@ -130,15 +133,52 @@
 }
 
 - (void)createBullets {
-    for (int i=0; i<self.vertCount ; i++) {
-        CGPoint p = CGPointMake(self.vert[i].x, self.vert[i].y);
-        [[SpriteManager shared] makeBulletAtPosition:p];
+    if([self.bulletVectors count] == self.vertCount){
+        for (int i=0; i< self.vertCount ; i++) {
+            CGPoint p = CGPointMake(self.vert[i].x, self.vert[i].y);
+            BulletSprite *bill = [[SpriteManager shared] makeBulletAtPosition:p];
+            CGPoint startVelocity = [[self.bulletVectors objectAtIndex:i] CGPointValue];
+//            [[SpriteManager shared] setVelocityOfBullet:bill newVelocity:startVelocity relativeToCharSprite:YES];
+        }
     }
 }
 
 - (void)shoot
 {
-    
+    //update bulletVectors
+    self.bulletVectors = [NSMutableArray array];
+    switch (self.vertCount) {
+        case 3: {
+            [self.bulletVectors addObject:
+                [NSValue valueWithCGPoint:CGPointMake(0, 1)]];
+            [self.bulletVectors addObject:
+                [NSValue valueWithCGPoint:CGPointMake(1, 0)]];
+            [self.bulletVectors addObject:
+                [NSValue valueWithCGPoint:CGPointMake(-1, 0)]];
+        }break;
+        case 4: {
+            [self.bulletVectors addObject:
+                [NSValue valueWithCGPoint:CGPointMake(1, 1)]];
+            [self.bulletVectors addObject:
+                [NSValue valueWithCGPoint:CGPointMake(1, -1)]];
+            [self.bulletVectors addObject:
+                [NSValue valueWithCGPoint:CGPointMake(-1, 1)]];
+            [self.bulletVectors addObject:
+                [NSValue valueWithCGPoint:CGPointMake(-1, -1)]];
+        }break;
+        case 5: {
+            [self.bulletVectors addObject:
+             [NSValue valueWithCGPoint:CGPointMake(0, 1)]];
+            [self.bulletVectors addObject:
+             [NSValue valueWithCGPoint:CGPointMake(1, 0)]];
+            [self.bulletVectors addObject:
+             [NSValue valueWithCGPoint:CGPointMake(-1, 0)] ];
+            [self.bulletVectors addObject:
+             [NSValue valueWithCGPoint:CGPointMake(1, 1)]];
+            [self.bulletVectors addObject:
+             [NSValue valueWithCGPoint:CGPointMake(-1, 1)]];
+        }break;
+    }
 }
 
 

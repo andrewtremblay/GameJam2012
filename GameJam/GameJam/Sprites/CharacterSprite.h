@@ -18,6 +18,9 @@
 @property (nonatomic, assign) int vertCount;
 @property (nonatomic, assign) int lastVertCount;
 
+@property (nonatomic, strong) NSMutableArray* bulletVectors; //forces for the bullets to use on initialization (adjust for rotation)
+
+
 - (void)updatePhysicsBoxWithPoint:(CGPoint)p numberOfVertex:(int)count;
 - (void)updateVertCount:(int)vertCount;
 
@@ -30,8 +33,6 @@
 //helper getters
 -(CGPoint)positionMeters;
 -(CGPoint)positionPixels;
-
-
 
 
 @property (nonatomic, assign) b2PolygonShape polygon;

@@ -21,12 +21,14 @@ enum {
 
 @interface GameLayer : CCLayer
 {
-	b2World* world;					// strong ref
-	GLESDebugDraw *m_debugDraw;		// strong ref
+	b2World* world;// strong ref
+	GLESDebugDraw *m_debugDraw;// strong ref
 }
 
-// returns a CCScene that contains the HelloWorldLayer as the only child
+// returns a CCScene that contains the GameLayer as the only child
 +(CCScene *) scene;
+
+#pragma mark Getters
 -(b2World*)getWorld;
 
 

@@ -29,28 +29,27 @@ static EventsManager* s_eventsManager;
         return self.spriteContactListener;        
     }
 
-
+    @synthesize mainGameState = _mainGameState;
     #pragma mark - BIG EVENTS
-    -(void)GAME_BEGIN
-    {
-
+    -(void)GAME_BEGIN { //(re)initializaion
+        self.mainGameState = gameRunning;
     }
 
-    -(void)GAME_OVER
-    {
-
+    -(void)GAME_OVER {
+        self.mainGameState = gameOverScreen;
     }
 
-    -(void)GAME_PAUSE
-    {
-    
+    -(void)GAME_PAUSE {
+        self.mainGameState = gamePauseMenu;
     }
 
-    -(void)GAME_RESUME
-    {
-        
+    -(void)GAME_RESUME { //any resuming logic
+       self.mainGameState = gameRunning;
     }
 
+    -(void)GAME_QUIT {
+        self.mainGameState = gameMainMenu;
+    }
 
 
     #pragma mark - "AI" "behavior"
@@ -85,8 +84,9 @@ static EventsManager* s_eventsManager;
             [charSprite setVertCount:newVertCount];
             enemySprite.dead = YES;
         }else{
-            
-            //GAME OVER, or not, maybe invincibility?
+            //GAME OVER, 
+            //or not, maybe invincibility is on?
+            //maybe there's health beyond number of sides?
             [[EventsManager shared] GAME_OVER];
         }
     }

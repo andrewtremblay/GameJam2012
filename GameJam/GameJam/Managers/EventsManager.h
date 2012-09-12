@@ -14,6 +14,12 @@
 #import "PowerUpSprite.h"
 #import "BulletSprite.h"
 
+enum gameState {
+    gameRunning = 0,
+    gameOverScreen = 1,
+    gamePauseMenu = 2,
+    gameMainMenu = 3
+    }; 
 
 /*
  What EventsManager should do:
@@ -27,8 +33,13 @@
     -(b2ContactListener *)makeSpriteListener;
     @property (assign, nonatomic) b2ContactListener* spriteContactListener;
     #pragma mark - BIG EVENTS
+    @property (assign, nonatomic) int mainGameState;
     -(void)GAME_BEGIN;
     -(void)GAME_OVER;
+    -(void)GAME_PAUSE;
+    -(void)GAME_RESUME;
+    -(void)GAME_QUIT;
+
 
 
     #pragma mark - "AI" "behavior"

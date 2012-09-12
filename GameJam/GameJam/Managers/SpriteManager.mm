@@ -129,6 +129,11 @@ static SpriteManager* s_spriteManager;
     }
 
 #pragma mark Updaters
+-(void) setVelocityOfBullet:(BulletSprite *)bullet newVelocity:(CGPoint) newVel relativeToCharSprite:(BOOL)adjust{
+
+}
+
+
     -(void)stopAllEnemies
     {
         NSLog(@"stopAllEnemies");
