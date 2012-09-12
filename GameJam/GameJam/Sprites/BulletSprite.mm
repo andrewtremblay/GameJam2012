@@ -27,8 +27,9 @@
     
     fixtureDefPoly.filter.categoryBits = kBulletCategoryBit;
     fixtureDefPoly.filter.maskBits = kBulletCollideMask;
-    
     polyBody->CreateFixture(&fixtureDefPoly);
+    
+    polyBody->SetUserData(self);
     
 	[self setPhysicsBody:polyBody];
 }

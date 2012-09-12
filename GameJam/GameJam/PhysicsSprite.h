@@ -15,4 +15,7 @@
 }
 -(void) setPhysicsBody:(b2Body*)body;
 -(b2Body *) getPhysicsBody;
+
+-(void)collidedWith:(PhysicsSprite*)collidee;
+
 @end

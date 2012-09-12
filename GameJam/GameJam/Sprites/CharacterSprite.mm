@@ -7,6 +7,9 @@
 //
 
 #import "CharacterSprite.h"
+#import "MinionSprite.h"
+#import "PowerUpSprite.h"
+#import "EventsManager.h"
 
 #define kMAXHEIGHT  40.0f
 #define kMAXWIDTH   40.0f
@@ -22,8 +25,6 @@
 }
 
 - (void)updatePhysicsBoxWithPoint:(CGPoint)p numberOfVertex:(int)count {
-    
-    
     b2BodyDef bodyDefPoly;
     bodyDefPoly.type = b2_dynamicBody;//b2_dynamicBody; //b2_kinematicBody
     bodyDefPoly.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
@@ -72,8 +73,20 @@
     fixtureDefPoly.filter.categoryBits = kMainCharCategoryBit;
     fixtureDefPoly.filter.maskBits = kMainCharCollideMask;
     polyBody->CreateFixture(&fixtureDefPoly);
-    
+    polyBody->SetUserData(self);
+
 	[self setPhysicsBody:polyBody];
+}
+
+-(void)collidedWith:(PhysicsSprite*)collidee
+{
+    if([collidee isKindOfClass:[MinionSprite class]]){
+        [[EventsManager shared] aCharacterSprite:self hitEnemy:(MinionSprite *)collidee];
+    }else if([collidee isKindOfClass:[PowerUpSprite class]]){
+        [[EventsManager shared] aCharacterSprite:self hitPowerup:(PowerUpSprite *)collidee];        
+    }else {
+        //default no action
+    }
 }
 
 @end

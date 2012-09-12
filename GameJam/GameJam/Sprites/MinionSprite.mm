@@ -7,6 +7,8 @@
 //
 
 #import "MinionSprite.h"
+#import "EventsManager.h"
+
 #define kMAXHEIGHT  30.0f
 #define kMAXWIDTH   30.0f
 
@@ -72,8 +74,19 @@
     fixtureDefPoly.filter.categoryBits = kEnemyCategoryBit; 
     fixtureDefPoly.filter.maskBits = kEnemyCollideMask; 
     polyBody->CreateFixture(&fixtureDefPoly);
-    
+    polyBody->SetUserData(self);
+
 	[self setPhysicsBody:polyBody];
+}
+
+
+-(void)collidedWith:(PhysicsSprite*)collidee
+{
+    if([collidee isKindOfClass:[BulletSprite class]]){
+        [[EventsManager shared] aBulletSprite:(BulletSprite *)collidee hitEnemy:self];
+    }else {
+        //default no action
+    }
 }
 
 

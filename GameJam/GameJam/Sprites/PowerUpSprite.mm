@@ -31,7 +31,8 @@
     fixtureDefPoly.filter.categoryBits = kPowerupCategoryBit; 
     fixtureDefPoly.filter.maskBits = kPowerupCollideMask;
     polyBody->CreateFixture(&fixtureDefPoly);
-    
+    polyBody->SetUserData(self);
+
 	[self setPhysicsBody:polyBody];
 }
 

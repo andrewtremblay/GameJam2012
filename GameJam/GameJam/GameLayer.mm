@@ -14,6 +14,7 @@
 #import "PhysicsSprite.h"
 #import "SpriteManager.h"
 #import "ControlManager.h"
+#import "EventsManager.h"
 
 
 
@@ -23,6 +24,8 @@
 -(void) initPhysics;
 -(void) initGroundBody;
 -(void) initPlayer;
+-(void)initSmorgasboard;//debug
+
 @end
 
 @implementation GameLayer
@@ -53,10 +56,20 @@
 		// init physics
 		[self initPhysics];
 		
-		// create reset button
+
+        
         [[SpriteManager shared] setWorldLayer:self]; 
         
+        
+        b2ContactListener *collisions = [[EventsManager shared] makeSpriteListener]; //reference also stored in singleton
+        world->SetContactListener(collisions);
+        
+//        [[EventsManager shared] setSpriteContactListener:self];
+        
+        
         [self initPlayer];
+        [self initSmorgasboard];
+
 		[self scheduleUpdate];
 	}
 	return self;
@@ -103,11 +116,18 @@
 
 -(void) initPlayer
 {
+    //init char sprite and attach it to it's keepers
     CGSize s = [CCDirector sharedDirector].winSize;
-    [[SpriteManager shared] addNewSpriteAtPosition:ccp( s.width - s.width/3,  s.height - s.height/3)];
-    
     CharacterSprite *charSprite = [[SpriteManager shared] addCharacterAtPosition:ccp(s.width/2, s.height/2)];
     [[ControlManager shared] setCharSprite:charSprite];        
+}
+
+-(void)initSmorgasboard
+{
+    CGSize s = [CCDirector sharedDirector].winSize;
+    [[SpriteManager shared] makePowerUpAtPosition:ccp( s.width - s.width/3,  s.height - s.height/3)];
+    [[SpriteManager shared] addMinionAtPosition:ccp( s.width/3,  s.height - s.height/3)];
+    [[SpriteManager shared] makeBulletAtPosition:ccp( s.width - s.width/3,  s.height/3)];
 }
 
 

@@ -87,22 +87,12 @@ static ControlManager* s_controlManager;
     
     float vx = p.x;
     float vy = p.y;
-    CCSpeed *action;
-    
     b2Body *b = self.charSprite.getPhysicsBody;
-    // set ball velocity by the incoming point
-    b->SetLinearVelocity(b2Vec2(vx,vy));//+b->GetLinearVelocity());
+    // set body velocity by the incoming point
+    b->SetLinearVelocity(b2Vec2(vx,vy));
+        //+b->GetLinearVelocity());
     float vel;
     vel = b->GetLinearVelocity().Normalize();
-    
-////    CCAction *move 
-////    action = [CCMoveBy actionWithDuration:1.f position:ccp(10,0)];
-////    action =[CCSpeed actionWithAction:move rate:0.5f];
-//
-//    
-//    [action setTag:kCharSpeedActionTag];
-//    [action setSpeed:vel];
-//        [self.charSprite runAction:action]; //action will run next timestep
 }
 
 -(void)setCharDirection:(CGPoint)p //CGPointZero will try to use velocity of char for direction

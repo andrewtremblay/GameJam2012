@@ -106,4 +106,11 @@ void ccFillPoly( CGPoint *poli, int points, BOOL closePolygon )
     glEnable(GL_TEXTURE_2D);
 }
 
+
+
+-(void)collidedWith:(PhysicsSprite*)collidee
+{
+    //default implemention blank
+}
+
 @end
