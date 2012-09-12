@@ -182,6 +182,10 @@
 		F0287873160010F3007CFA9E /* PhysicsSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = F0287872160010F3007CFA9E /* PhysicsSprite.mm */; };
 		F0287875160010F3007CFA9E /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = F0287874160010F3007CFA9E /* blocks.png */; };
 		F028787C16001277007CFA9E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F028787B16001277007CFA9E /* GLKit.framework */; };
+		F0287880160014C3007CFA9E /* CharacterSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F028787F160014C3007CFA9E /* CharacterSprite.m */; };
+		F0287883160014DA007CFA9E /* MinionSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F0287882160014DA007CFA9E /* MinionSprite.m */; };
+		F0287886160014ED007CFA9E /* PowerUpSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F0287885160014ED007CFA9E /* PowerUpSprite.m */; };
+		F028788916001506007CFA9E /* BulletSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F028788816001506007CFA9E /* BulletSprite.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -547,6 +551,14 @@
 		F0287872160010F3007CFA9E /* PhysicsSprite.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = PhysicsSprite.mm; sourceTree = "<group>"; };
 		F0287874160010F3007CFA9E /* blocks.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blocks.png; path = Resources/blocks.png; sourceTree = "<group>"; };
 		F028787B16001277007CFA9E /* GLKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLKit.framework; path = System/Library/Frameworks/GLKit.framework; sourceTree = SDKROOT; };
+		F028787E160014C3007CFA9E /* CharacterSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterSprite.h; path = Sprites/CharacterSprite.h; sourceTree = "<group>"; };
+		F028787F160014C3007CFA9E /* CharacterSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CharacterSprite.m; path = Sprites/CharacterSprite.m; sourceTree = "<group>"; };
+		F0287881160014DA007CFA9E /* MinionSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MinionSprite.h; path = Sprites/MinionSprite.h; sourceTree = "<group>"; };
+		F0287882160014DA007CFA9E /* MinionSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MinionSprite.m; path = Sprites/MinionSprite.m; sourceTree = "<group>"; };
+		F0287884160014ED007CFA9E /* PowerUpSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PowerUpSprite.h; path = Sprites/PowerUpSprite.h; sourceTree = "<group>"; };
+		F0287885160014ED007CFA9E /* PowerUpSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PowerUpSprite.m; path = Sprites/PowerUpSprite.m; sourceTree = "<group>"; };
+		F028788716001506007CFA9E /* BulletSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BulletSprite.h; path = Sprites/BulletSprite.h; sourceTree = "<group>"; };
+		F028788816001506007CFA9E /* BulletSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BulletSprite.m; path = Sprites/BulletSprite.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -607,6 +619,7 @@
 		F028765A160010F0007CFA9E /* GameJam */ = {
 			isa = PBXGroup;
 			children = (
+				F028787D16001495007CFA9E /* Sprites */,
 				F0287865160010F3007CFA9E /* AppDelegate.h */,
 				F0287866160010F3007CFA9E /* AppDelegate.mm */,
 				F0287868160010F3007CFA9E /* HelloWorldLayer.h */,
@@ -1146,6 +1159,21 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		F028787D16001495007CFA9E /* Sprites */ = {
+			isa = PBXGroup;
+			children = (
+				F028787E160014C3007CFA9E /* CharacterSprite.h */,
+				F028787F160014C3007CFA9E /* CharacterSprite.m */,
+				F0287881160014DA007CFA9E /* MinionSprite.h */,
+				F0287882160014DA007CFA9E /* MinionSprite.m */,
+				F0287884160014ED007CFA9E /* PowerUpSprite.h */,
+				F0287885160014ED007CFA9E /* PowerUpSprite.m */,
+				F028788716001506007CFA9E /* BulletSprite.h */,
+				F028788816001506007CFA9E /* BulletSprite.m */,
+			);
+			name = Sprites;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1371,6 +1399,10 @@
 				F028786D160010F3007CFA9E /* IntroLayer.mm in Sources */,
 				F0287870160010F3007CFA9E /* GLES-Render.mm in Sources */,
 				F0287873160010F3007CFA9E /* PhysicsSprite.mm in Sources */,
+				F0287880160014C3007CFA9E /* CharacterSprite.m in Sources */,
+				F0287883160014DA007CFA9E /* MinionSprite.m in Sources */,
+				F0287886160014ED007CFA9E /* PowerUpSprite.m in Sources */,
+				F028788916001506007CFA9E /* BulletSprite.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
