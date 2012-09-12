@@ -194,6 +194,7 @@
 /* Begin PBXFileReference section */
 		3136375D160017DE003BC4B5 /* SpriteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteManager.h; path = Managers/SpriteManager.h; sourceTree = "<group>"; };
 		3136375E160017DE003BC4B5 /* SpriteManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SpriteManager.mm; path = Managers/SpriteManager.mm; sourceTree = "<group>"; };
+		3136376516002692003BC4B5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		F0287644160010F0007CFA9E /* GameJam.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GameJam.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0287648160010F0007CFA9E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		F028764A160010F0007CFA9E /* OpenGLES.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGLES.framework; path = System/Library/Frameworks/OpenGLES.framework; sourceTree = SDKROOT; };
@@ -1161,6 +1162,7 @@
 		F0287861160010F3007CFA9E /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				3136376516002692003BC4B5 /* Constants.h */,
 				F0287862160010F3007CFA9E /* Prefix.pch */,
 				F0287863160010F3007CFA9E /* main.m */,
 			);
