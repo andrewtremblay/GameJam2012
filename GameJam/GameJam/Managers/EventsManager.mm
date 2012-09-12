@@ -7,6 +7,8 @@
 //
 
 #import "EventsManager.h"
+#import "SpriteManager.h"
+
 
 static EventsManager* s_eventsManager;
 
@@ -26,6 +28,14 @@ static EventsManager* s_eventsManager;
         self.spriteContactListener = new SpriteContactListener();
         return self.spriteContactListener;        
     }
+
+#pragma mark - "AI" "behavior"
+//right now just simple seek/avoid for the enemies, maybe some shooting/greed later too
+-(void)aCharacterSprite:(CharacterSprite*)charSprite movedToPoint:(CGPoint)destPoint
+{
+    [[SpriteManager shared] updateAllEnemySeekPosition:destPoint]; 
+//    [[SpriteManager shared] updateAllEnemyAvoidPosition:destPoint];
+}
 
 
 #pragma mark - collisions
