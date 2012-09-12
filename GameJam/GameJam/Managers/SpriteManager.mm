@@ -44,8 +44,7 @@ static SpriteManager* s_spriteManager;
     CharacterSprite* cSprite = [[CharacterSprite alloc] initWithTexture:self.spriteTexture];
     [parent addChild:cSprite];
     cSprite.position = ccp(p.x,p.y);
-    
-    [cSprite updatePhysicsBoxWithPoint:p numberOfVertex:3];
+    [cSprite updatePhysicsBoxWithPoint:p numberOfVertex:4];
     return cSprite;
 }
 
@@ -70,7 +69,7 @@ static SpriteManager* s_spriteManager;
 	// Define the dynamic body.
 	//Set up a 1m squared box in the physics world
 	b2BodyDef bodyDef;
-	bodyDef.type = b2_dynamicBody;
+	bodyDef.type = b2_kinematicBody;//b2_dynamicBody;
 	bodyDef.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
 	b2Body *body = self.worldLayer.getWorld->CreateBody(&bodyDef);
 	

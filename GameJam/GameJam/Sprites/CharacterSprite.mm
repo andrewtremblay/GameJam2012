@@ -34,7 +34,7 @@
 - (void)updatePhysicsBoxWithPoint:(CGPoint)p numberOfVertex:(int)count {
     
     b2BodyDef bodyDefPoly;
-    bodyDefPoly.type = b2_dynamicBody;
+    bodyDefPoly.type = b2_kinematicBody;//b2_dynamicBody;
     bodyDefPoly.position.Set(p.x/PTM_RATIO, p.y/PTM_RATIO);
     b2Body *polyBody = [SpriteManager shared].worldLayer.getWorld->CreateBody(&bodyDefPoly);
     
@@ -73,6 +73,7 @@
     fixtureDefPoly.shape = &polygon;
     fixtureDefPoly.density = 1.0f;
     fixtureDefPoly.friction = 0.3f;
+    fixtureDefPoly.userData = self;
     polyBody->CreateFixture(&fixtureDefPoly);
     
 	[self setPhysicsBody:polyBody];

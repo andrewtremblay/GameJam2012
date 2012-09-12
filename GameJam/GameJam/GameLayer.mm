@@ -106,10 +106,8 @@
     CGSize s = [CCDirector sharedDirector].winSize;
     [[SpriteManager shared] addNewSpriteAtPosition:ccp( s.width - s.width/3,  s.height - s.height/3)];
     
-    CharacterSprite *charSprite = [[SpriteManager shared] addNewCharacterSpriteAtPosition:ccp(s.width/2, s.height/2)];
-    [[ControlManager shared] setCharSprite:charSprite];
-    [[ControlManager shared] setCharVelocity:ccp(0.3, 0.3)];
-    
+    CharacterSprite *charSprite = [[SpriteManager shared] addCharacterAtPosition:ccp(s.width/2, s.height/2)];
+    [[ControlManager shared] setCharSprite:charSprite];        
 }
 
 
@@ -197,13 +195,13 @@
     [[ControlManager shared] touchesEnded:touches withEvent:event];
 //debug, keep for now
 	//Add a new body/atlas sprite at the touched location
-	for( UITouch *touch in touches ) {
-		CGPoint location = [touch locationInView: [touch view]];
-		
-		location = [[CCDirector sharedDirector] convertToGL: location];
-		
-		[[SpriteManager shared] addNewSpriteAtPosition: location];
-	}
+//	for( UITouch *touch in touches ) {
+//		CGPoint location = [touch locationInView: [touch view]];
+//		
+//		location = [[CCDirector sharedDirector] convertToGL: location];
+//		
+//		[[SpriteManager shared] addNewSpriteAtPosition: location];
+//	}
 }
 
 
