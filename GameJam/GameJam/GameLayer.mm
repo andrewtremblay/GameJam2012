@@ -22,6 +22,7 @@
 @interface GameLayer()
 -(void) initPhysics;
 -(void) initGroundBody;
+-(void) initPlayer;
 @end
 
 @implementation GameLayer
@@ -54,6 +55,8 @@
 		
 		// create reset button
         [[SpriteManager shared] setWorldLayer:self]; 
+        
+        [self initPlayer];
 		[self scheduleUpdate];
 	}
 	return self;
@@ -74,7 +77,7 @@
 {
 	
 	b2Vec2 gravity;
-	gravity.Set(0.0f, -10.0f);
+	gravity.Set(0.0f, 0.0f);// -10.0f);
 	world = new b2World(gravity);
 	
 	
@@ -97,6 +100,18 @@
     [self initGroundBody];
 
 }
+
+-(void) initPlayer
+{
+    CGSize s = [CCDirector sharedDirector].winSize;
+    [[SpriteManager shared] addNewSpriteAtPosition:ccp( s.width - s.width/3,  s.height - s.height/3)];
+    
+    CharacterSprite *charSprite = [[SpriteManager shared] addNewCharacterSpriteAtPosition:ccp(s.width/2, s.height/2)];
+    [[ControlManager shared] setCharSprite:charSprite];
+    [[ControlManager shared] setCharVelocity:ccp(0.3, 0.3)];
+    
+}
+
 
 -(void) draw
 {
@@ -165,8 +180,7 @@
 }
 
 
-
-//control callbacks
+//control callbacks (easier for ControlManager)
 -(void)ccTouchesBegan:(NSSet *)touches withEvent:(UIEvent *)event
 {
     [[ControlManager shared] touchesBegan:touches withEvent:event];
