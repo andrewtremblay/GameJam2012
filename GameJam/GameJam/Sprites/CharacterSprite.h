@@ -6,8 +6,8 @@
 //
 //
 
-#import "CCSprite.h"
+#import "PhysicsSprite.h"
 
-@interface CharacterSprite : CCSprite
+@interface CharacterSprite : PhysicsSprite
 
 @end
