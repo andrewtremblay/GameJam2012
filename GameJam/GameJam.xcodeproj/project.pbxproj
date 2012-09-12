@@ -186,6 +186,8 @@
 		F0287883160014DA007CFA9E /* MinionSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F0287882160014DA007CFA9E /* MinionSprite.m */; };
 		F0287886160014ED007CFA9E /* PowerUpSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F0287885160014ED007CFA9E /* PowerUpSprite.m */; };
 		F028788916001506007CFA9E /* BulletSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F028788816001506007CFA9E /* BulletSprite.m */; };
+		F028788D16001584007CFA9E /* EventsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F028788C16001584007CFA9E /* EventsManager.m */; };
+		F028789016001592007CFA9E /* ControlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F028788F16001592007CFA9E /* ControlManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -559,6 +561,10 @@
 		F0287885160014ED007CFA9E /* PowerUpSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PowerUpSprite.m; path = Sprites/PowerUpSprite.m; sourceTree = "<group>"; };
 		F028788716001506007CFA9E /* BulletSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BulletSprite.h; path = Sprites/BulletSprite.h; sourceTree = "<group>"; };
 		F028788816001506007CFA9E /* BulletSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BulletSprite.m; path = Sprites/BulletSprite.m; sourceTree = "<group>"; };
+		F028788B16001584007CFA9E /* EventsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventsManager.h; path = Managers/EventsManager.h; sourceTree = "<group>"; };
+		F028788C16001584007CFA9E /* EventsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventsManager.m; path = Managers/EventsManager.m; sourceTree = "<group>"; };
+		F028788E16001592007CFA9E /* ControlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlManager.h; path = Managers/ControlManager.h; sourceTree = "<group>"; };
+		F028788F16001592007CFA9E /* ControlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlManager.m; path = Managers/ControlManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -619,6 +625,7 @@
 		F028765A160010F0007CFA9E /* GameJam */ = {
 			isa = PBXGroup;
 			children = (
+				F028788A16001565007CFA9E /* Managers */,
 				F028787D16001495007CFA9E /* Sprites */,
 				F0287865160010F3007CFA9E /* AppDelegate.h */,
 				F0287866160010F3007CFA9E /* AppDelegate.mm */,
@@ -1174,6 +1181,17 @@
 			name = Sprites;
 			sourceTree = "<group>";
 		};
+		F028788A16001565007CFA9E /* Managers */ = {
+			isa = PBXGroup;
+			children = (
+				F028788B16001584007CFA9E /* EventsManager.h */,
+				F028788C16001584007CFA9E /* EventsManager.m */,
+				F028788E16001592007CFA9E /* ControlManager.h */,
+				F028788F16001592007CFA9E /* ControlManager.m */,
+			);
+			name = Managers;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -1403,6 +1421,8 @@
 				F0287883160014DA007CFA9E /* MinionSprite.m in Sources */,
 				F0287886160014ED007CFA9E /* PowerUpSprite.m in Sources */,
 				F028788916001506007CFA9E /* BulletSprite.m in Sources */,
+				F028788D16001584007CFA9E /* EventsManager.m in Sources */,
+				F028789016001592007CFA9E /* ControlManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
