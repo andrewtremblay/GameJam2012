@@ -23,7 +23,6 @@
 	
 	// Do we want to let bodies sleep?
 	world->SetAllowSleeping(true);
-	
 	world->SetContinuousPhysics(true);
 	
 	m_debugDraw = new GLESDebugDraw( PTM_RATIO );

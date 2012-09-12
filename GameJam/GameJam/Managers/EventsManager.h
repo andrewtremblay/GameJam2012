@@ -45,6 +45,8 @@
     -(void)aCharacterSprite:(CharacterSprite*)charSprite hitPowerup:(PowerUpSprite*)powerUpSprite;
     -(void)aBulletSprite:(BulletSprite*)bulletSprite hitEnemy:(MinionSprite*)enemySprite;
 
+    -(void)cleanUpCollisions;
+
     #pragma mark collision checking 
     -(PhysicsSprite *)findCollideeInUserDataA:(id)userDataA orUserDataB:(id)userDataB;
     //Character and Enemy checking should handle every contact combination we'll need., add more when this becomes untrue

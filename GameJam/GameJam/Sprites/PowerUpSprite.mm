@@ -9,7 +9,7 @@
 #import "PowerUpSprite.h"
 
 @implementation PowerUpSprite
-
+@synthesize spent = _spent;
 
 - (void)updatePhysicsBoxWithPoint:(CGPoint)p {
     

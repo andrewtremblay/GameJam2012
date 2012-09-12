@@ -12,5 +12,5 @@
 #import "SpriteManager.h"
 @interface PowerUpSprite : PhysicsSprite
 - (void)updatePhysicsBoxWithPoint:(CGPoint)p;
-
+@property (nonatomic, assign) BOOL spent;
 @end

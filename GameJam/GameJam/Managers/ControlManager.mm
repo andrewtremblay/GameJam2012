@@ -119,7 +119,7 @@ static ControlManager* s_controlManager;
 - (void)pressFoundAtPoint:(CGPoint)p
 {
     [self setCharVelocityRelativeToPress:p];
-//    [self moveCharToPoint:p];
+    //    [self moveCharToPoint:p];
 }
 
 -(void)setCharVelocityRelativeToPress:(CGPoint)pointOfPress

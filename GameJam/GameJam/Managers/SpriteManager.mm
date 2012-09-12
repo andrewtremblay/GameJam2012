@@ -41,14 +41,14 @@ static SpriteManager* s_spriteManager;
     //    [self addNewSpriteAtPosition:ccp(s.width/2, s.height/2)]; //delete this, but good for debugging
     }
 
-#pragma mark Makers
+    #pragma mark Makers
     - (CharacterSprite *)makeCharacterAtPosition:(CGPoint)p
     {
         CCNode *parent = [self.worldLayer getChildByTag:kTagParentNode];
         CharacterSprite* cSprite = [[CharacterSprite alloc] initWithTexture:self.spriteTexture];
         [parent addChild:cSprite];
         cSprite.position = ccp(p.x,p.y);
-        [cSprite updatePhysicsBoxWithPoint:p numberOfVertex:4];
+        [cSprite updatePhysicsBoxWithPoint:p numberOfVertex:3];
         return cSprite;
     }
     - (BulletSprite *)makeBulletAtPosition:(CGPoint)p
@@ -154,6 +154,23 @@ static SpriteManager* s_spriteManager;
     {
         NSLog(@"updateAllEnemyAvoidPosition");
     }
+
+#pragma mark Cleanups
+    -(void)cleanSpentPowerups
+    {
+        
+    }
+
+    -(void)cleanEnemyCorpses
+    {
+        
+    }
+
+    -(void)cleanBullets
+    {
+        
+    }
+
 
 
 @end

@@ -29,6 +29,12 @@
 
 #pragma mark Updaters
     -(void)stopAllEnemies;
-    -(void)updateAllEnemySeekPosition:(CGPoint)p;
+    -(void)updateAllEnemySeekPosition:(CGPoint)p; //no flags for this, just setting velocity
     -(void)updateAllEnemyAvoidPosition:(CGPoint)p;
+
+#pragma mark Cleanups
+    -(void)cleanSpentPowerups;
+    -(void)cleanEnemyCorpses;
+    -(void)cleanBullets;
+
 @end
