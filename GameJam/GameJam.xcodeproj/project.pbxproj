@@ -176,7 +176,6 @@
 		F028785E160010F3007CFA9E /* b2Rope.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F028785D160010F3007CFA9E /* b2Rope.cpp */; };
 		F0287864160010F3007CFA9E /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = F0287863160010F3007CFA9E /* main.m */; };
 		F0287867160010F3007CFA9E /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = F0287866160010F3007CFA9E /* AppDelegate.mm */; };
-		F028786A160010F3007CFA9E /* HelloWorldLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = F0287869160010F3007CFA9E /* HelloWorldLayer.mm */; };
 		F028786D160010F3007CFA9E /* IntroLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = F028786C160010F3007CFA9E /* IntroLayer.mm */; };
 		F0287870160010F3007CFA9E /* GLES-Render.mm in Sources */ = {isa = PBXBuildFile; fileRef = F028786F160010F3007CFA9E /* GLES-Render.mm */; };
 		F0287873160010F3007CFA9E /* PhysicsSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = F0287872160010F3007CFA9E /* PhysicsSprite.mm */; };
@@ -188,6 +187,7 @@
 		F028788916001506007CFA9E /* BulletSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F028788816001506007CFA9E /* BulletSprite.m */; };
 		F028788D16001584007CFA9E /* EventsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F028788C16001584007CFA9E /* EventsManager.m */; };
 		F028789016001592007CFA9E /* ControlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F028788F16001592007CFA9E /* ControlManager.m */; };
+		F0287893160016AD007CFA9E /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = F0287892160016AD007CFA9E /* GameLayer.mm */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -543,8 +543,6 @@
 		F0287863160010F3007CFA9E /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		F0287865160010F3007CFA9E /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		F0287866160010F3007CFA9E /* AppDelegate.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = AppDelegate.mm; sourceTree = "<group>"; };
-		F0287868160010F3007CFA9E /* HelloWorldLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HelloWorldLayer.h; sourceTree = "<group>"; };
-		F0287869160010F3007CFA9E /* HelloWorldLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = HelloWorldLayer.mm; sourceTree = "<group>"; };
 		F028786B160010F3007CFA9E /* IntroLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = IntroLayer.h; sourceTree = "<group>"; };
 		F028786C160010F3007CFA9E /* IntroLayer.mm */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.objcpp; path = IntroLayer.mm; sourceTree = "<group>"; };
 		F028786E160010F3007CFA9E /* GLES-Render.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GLES-Render.h"; sourceTree = "<group>"; };
@@ -565,6 +563,8 @@
 		F028788C16001584007CFA9E /* EventsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventsManager.m; path = Managers/EventsManager.m; sourceTree = "<group>"; };
 		F028788E16001592007CFA9E /* ControlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlManager.h; path = Managers/ControlManager.h; sourceTree = "<group>"; };
 		F028788F16001592007CFA9E /* ControlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlManager.m; path = Managers/ControlManager.m; sourceTree = "<group>"; };
+		F0287891160016AD007CFA9E /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
+		F0287892160016AD007CFA9E /* GameLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameLayer.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -629,8 +629,8 @@
 				F028787D16001495007CFA9E /* Sprites */,
 				F0287865160010F3007CFA9E /* AppDelegate.h */,
 				F0287866160010F3007CFA9E /* AppDelegate.mm */,
-				F0287868160010F3007CFA9E /* HelloWorldLayer.h */,
-				F0287869160010F3007CFA9E /* HelloWorldLayer.mm */,
+				F0287891160016AD007CFA9E /* GameLayer.h */,
+				F0287892160016AD007CFA9E /* GameLayer.mm */,
 				F028786B160010F3007CFA9E /* IntroLayer.h */,
 				F028786C160010F3007CFA9E /* IntroLayer.mm */,
 				F028786E160010F3007CFA9E /* GLES-Render.h */,
@@ -1413,7 +1413,6 @@
 				F028785E160010F3007CFA9E /* b2Rope.cpp in Sources */,
 				F0287864160010F3007CFA9E /* main.m in Sources */,
 				F0287867160010F3007CFA9E /* AppDelegate.mm in Sources */,
-				F028786A160010F3007CFA9E /* HelloWorldLayer.mm in Sources */,
 				F028786D160010F3007CFA9E /* IntroLayer.mm in Sources */,
 				F0287870160010F3007CFA9E /* GLES-Render.mm in Sources */,
 				F0287873160010F3007CFA9E /* PhysicsSprite.mm in Sources */,
@@ -1423,6 +1422,7 @@
 				F028788916001506007CFA9E /* BulletSprite.m in Sources */,
 				F028788D16001584007CFA9E /* EventsManager.m in Sources */,
 				F028789016001592007CFA9E /* ControlManager.m in Sources */,
+				F0287893160016AD007CFA9E /* GameLayer.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

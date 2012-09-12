@@ -1,13 +1,12 @@
 //
-//  HelloWorldLayer.mm
+//  GameLayer.m
 //  GameJam
 //
 //  Created by Alex Rouse on 9/11/12.
-//  Copyright __MyCompanyName__ 2012. All rights reserved.
+//
 //
 
-// Import the interfaces
-#import "HelloWorldLayer.h"
+#import "GameLayer.h"
 
 // Needed to obtain the Navigation Controller
 #import "AppDelegate.h"
@@ -21,21 +20,20 @@ enum {
 
 #pragma mark - HelloWorldLayer
 
-@interface HelloWorldLayer()
+@interface GameLayer()
 -(void) initPhysics;
 -(void) addNewSpriteAtPosition:(CGPoint)p;
 -(void) createMenu;
 @end
 
-@implementation HelloWorldLayer
-
+@implementation GameLayer
 +(CCScene *) scene
 {
 	// 'scene' is an autorelease object.
 	CCScene *scene = [CCScene node];
 	
 	// 'layer' is an autorelease object.
-	HelloWorldLayer *layer = [HelloWorldLayer node];
+	GameLayer *layer = [GameLayer node];
 	
 	// add layer as a child to scene
 	[scene addChild: layer];
@@ -95,7 +93,7 @@ enum {
 	m_debugDraw = NULL;
 	
 	[super dealloc];
-}	
+}
 
 -(void) createMenu
 {
@@ -104,7 +102,7 @@ enum {
 	
 	// Reset Button
 	CCMenuItemLabel *reset = [CCMenuItemFont itemWithString:@"Reset" block:^(id sender){
-		[[CCDirector sharedDirector] replaceScene: [HelloWorldLayer scene]];
+		[[CCDirector sharedDirector] replaceScene: [GameLayer scene]];
 	}];
 	
 	// Achievement Menu Item using blocks
@@ -143,7 +141,7 @@ enum {
 	[menu setPosition:ccp( size.width/2, size.height/2)];
 	
 	
-	[self addChild: menu z:-1];	
+	[self addChild: menu z:-1];
 }
 
 -(void) initPhysics
@@ -170,7 +168,7 @@ enum {
 	//		flags += b2Draw::e_aabbBit;
 	//		flags += b2Draw::e_pairBit;
 	//		flags += b2Draw::e_centerOfMassBit;
-	m_debugDraw->SetFlags(flags);		
+	m_debugDraw->SetFlags(flags);
 	
 	
 	// Define the ground body.
@@ -183,7 +181,7 @@ enum {
 	b2Body* groundBody = world->CreateBody(&groundBodyDef);
 	
 	// Define the ground box shape.
-	b2EdgeShape groundBox;		
+	b2EdgeShape groundBox;
 	
 	// bottom
 	
@@ -216,7 +214,7 @@ enum {
 	
 	kmGLPushMatrix();
 	
-	world->DrawDebugData();	
+	world->DrawDebugData();
 	
 	kmGLPopMatrix();
 }
@@ -230,7 +228,7 @@ enum {
 	//just randomly picking one of the images
 	int idx = (CCRANDOM_0_1() > .5 ? 0:1);
 	int idy = (CCRANDOM_0_1() > .5 ? 0:1);
-	PhysicsSprite *sprite = [PhysicsSprite spriteWithTexture:spriteTexture_ rect:CGRectMake(32 * idx,32 * idy,32,32)];						
+	PhysicsSprite *sprite = [PhysicsSprite spriteWithTexture:spriteTexture_ rect:CGRectMake(32 * idx,32 * idy,32,32)];
 	[parent addChild:sprite];
 	
 	sprite.position = ccp( p.x, p.y);
@@ -248,7 +246,7 @@ enum {
 	
 	// Define the dynamic body fixture.
 	b2FixtureDef fixtureDef;
-	fixtureDef.shape = &dynamicBox;	
+	fixtureDef.shape = &dynamicBox;
 	fixtureDef.density = 1.0f;
 	fixtureDef.friction = 0.3f;
 	body->CreateFixture(&fixtureDef);
@@ -268,7 +266,7 @@ enum {
 	
 	// Instruct the world to perform a single step of simulation. It is
 	// generally best to keep the time step and iterations fixed.
-	world->Step(dt, velocityIterations, positionIterations);	
+	world->Step(dt, velocityIterations, positionIterations);
 }
 
 - (void)ccTouchesEnded:(NSSet *)touches withEvent:(UIEvent *)event
