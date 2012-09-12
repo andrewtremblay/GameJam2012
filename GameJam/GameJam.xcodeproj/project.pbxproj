@@ -183,12 +183,13 @@
 		F0287875160010F3007CFA9E /* blocks.png in Resources */ = {isa = PBXBuildFile; fileRef = F0287874160010F3007CFA9E /* blocks.png */; };
 		F028787C16001277007CFA9E /* GLKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F028787B16001277007CFA9E /* GLKit.framework */; };
 		F0287880160014C3007CFA9E /* CharacterSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = F028787F160014C3007CFA9E /* CharacterSprite.mm */; };
-		F0287883160014DA007CFA9E /* MinionSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F0287882160014DA007CFA9E /* MinionSprite.m */; };
-		F0287886160014ED007CFA9E /* PowerUpSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F0287885160014ED007CFA9E /* PowerUpSprite.m */; };
-		F028788916001506007CFA9E /* BulletSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F028788816001506007CFA9E /* BulletSprite.m */; };
+		F0287883160014DA007CFA9E /* MinionSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = F0287882160014DA007CFA9E /* MinionSprite.mm */; };
+		F0287886160014ED007CFA9E /* PowerUpSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = F0287885160014ED007CFA9E /* PowerUpSprite.mm */; };
+		F028788916001506007CFA9E /* BulletSprite.mm in Sources */ = {isa = PBXBuildFile; fileRef = F028788816001506007CFA9E /* BulletSprite.mm */; };
 		F028788D16001584007CFA9E /* EventsManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = F028788C16001584007CFA9E /* EventsManager.mm */; };
 		F028789016001592007CFA9E /* ControlManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = F028788F16001592007CFA9E /* ControlManager.mm */; };
 		F0287893160016AD007CFA9E /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = F0287892160016AD007CFA9E /* GameLayer.mm */; };
+		F028789A160021E3007CFA9E /* blackTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = F0287899160021E3007CFA9E /* blackTexture.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -558,17 +559,18 @@
 		F028787E160014C3007CFA9E /* CharacterSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CharacterSprite.h; path = Sprites/CharacterSprite.h; sourceTree = "<group>"; };
 		F028787F160014C3007CFA9E /* CharacterSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = CharacterSprite.mm; path = Sprites/CharacterSprite.mm; sourceTree = "<group>"; };
 		F0287881160014DA007CFA9E /* MinionSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MinionSprite.h; path = Sprites/MinionSprite.h; sourceTree = "<group>"; };
-		F0287882160014DA007CFA9E /* MinionSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MinionSprite.m; path = Sprites/MinionSprite.m; sourceTree = "<group>"; };
+		F0287882160014DA007CFA9E /* MinionSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MinionSprite.mm; path = Sprites/MinionSprite.mm; sourceTree = "<group>"; };
 		F0287884160014ED007CFA9E /* PowerUpSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = PowerUpSprite.h; path = Sprites/PowerUpSprite.h; sourceTree = "<group>"; };
-		F0287885160014ED007CFA9E /* PowerUpSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = PowerUpSprite.m; path = Sprites/PowerUpSprite.m; sourceTree = "<group>"; };
+		F0287885160014ED007CFA9E /* PowerUpSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = PowerUpSprite.mm; path = Sprites/PowerUpSprite.mm; sourceTree = "<group>"; };
 		F028788716001506007CFA9E /* BulletSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BulletSprite.h; path = Sprites/BulletSprite.h; sourceTree = "<group>"; };
-		F028788816001506007CFA9E /* BulletSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BulletSprite.m; path = Sprites/BulletSprite.m; sourceTree = "<group>"; };
+		F028788816001506007CFA9E /* BulletSprite.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = BulletSprite.mm; path = Sprites/BulletSprite.mm; sourceTree = "<group>"; };
 		F028788B16001584007CFA9E /* EventsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventsManager.h; path = Managers/EventsManager.h; sourceTree = "<group>"; };
 		F028788C16001584007CFA9E /* EventsManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EventsManager.mm; path = Managers/EventsManager.mm; sourceTree = "<group>"; };
 		F028788E16001592007CFA9E /* ControlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlManager.h; path = Managers/ControlManager.h; sourceTree = "<group>"; };
 		F028788F16001592007CFA9E /* ControlManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ControlManager.mm; path = Managers/ControlManager.mm; sourceTree = "<group>"; };
 		F0287891160016AD007CFA9E /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		F0287892160016AD007CFA9E /* GameLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameLayer.mm; sourceTree = "<group>"; };
+		F0287899160021E3007CFA9E /* blackTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = blackTexture.png; path = Resources/blackTexture.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -639,6 +641,8 @@
 				F028786C160010F3007CFA9E /* IntroLayer.mm */,
 				F028786E160010F3007CFA9E /* GLES-Render.h */,
 				F028786F160010F3007CFA9E /* GLES-Render.mm */,
+				F0287871160010F3007CFA9E /* PhysicsSprite.h */,
+				F0287872160010F3007CFA9E /* PhysicsSprite.mm */,
 				F028765B160010F0007CFA9E /* Resources */,
 				F0287675160010F0007CFA9E /* libs */,
 				F0287861160010F3007CFA9E /* Supporting Files */,
@@ -649,6 +653,7 @@
 		F028765B160010F0007CFA9E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F0287899160021E3007CFA9E /* blackTexture.png */,
 				F028765C160010F0007CFA9E /* Default.png */,
 				F028765E160010F0007CFA9E /* Default-Landscape~ipad.png */,
 				F0287660160010F0007CFA9E /* fps_images.png */,
@@ -1172,16 +1177,14 @@
 		F028787D16001495007CFA9E /* Sprites */ = {
 			isa = PBXGroup;
 			children = (
-				F0287871160010F3007CFA9E /* PhysicsSprite.h */,
-				F0287872160010F3007CFA9E /* PhysicsSprite.mm */,
 				F028787E160014C3007CFA9E /* CharacterSprite.h */,
 				F028787F160014C3007CFA9E /* CharacterSprite.mm */,
 				F0287881160014DA007CFA9E /* MinionSprite.h */,
-				F0287882160014DA007CFA9E /* MinionSprite.m */,
+				F0287882160014DA007CFA9E /* MinionSprite.mm */,
 				F0287884160014ED007CFA9E /* PowerUpSprite.h */,
-				F0287885160014ED007CFA9E /* PowerUpSprite.m */,
+				F0287885160014ED007CFA9E /* PowerUpSprite.mm */,
 				F028788716001506007CFA9E /* BulletSprite.h */,
-				F028788816001506007CFA9E /* BulletSprite.m */,
+				F028788816001506007CFA9E /* BulletSprite.mm */,
 			);
 			name = Sprites;
 			sourceTree = "<group>";
@@ -1263,6 +1266,7 @@
 				F0287674160010F0007CFA9E /* iTunesArtwork in Resources */,
 				F02877B2160010F2007CFA9E /* ChangeLog in Resources */,
 				F0287875160010F3007CFA9E /* blocks.png in Resources */,
+				F028789A160021E3007CFA9E /* blackTexture.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1424,9 +1428,9 @@
 				F0287870160010F3007CFA9E /* GLES-Render.mm in Sources */,
 				F0287873160010F3007CFA9E /* PhysicsSprite.mm in Sources */,
 				F0287880160014C3007CFA9E /* CharacterSprite.mm in Sources */,
-				F0287883160014DA007CFA9E /* MinionSprite.m in Sources */,
-				F0287886160014ED007CFA9E /* PowerUpSprite.m in Sources */,
-				F028788916001506007CFA9E /* BulletSprite.m in Sources */,
+				F0287883160014DA007CFA9E /* MinionSprite.mm in Sources */,
+				F0287886160014ED007CFA9E /* PowerUpSprite.mm in Sources */,
+				F028788916001506007CFA9E /* BulletSprite.mm in Sources */,
 				F028788D16001584007CFA9E /* EventsManager.mm in Sources */,
 				F028789016001592007CFA9E /* ControlManager.mm in Sources */,
 				F0287893160016AD007CFA9E /* GameLayer.mm in Sources */,
