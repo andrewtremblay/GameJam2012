@@ -115,6 +115,7 @@ static SpriteManager* s_spriteManager;
 	fixtureDef.shape = &dynamicBox;	
 	fixtureDef.density = 1.0f;
 	fixtureDef.friction = 0.3f;
+//    fixtureDef.filter.
 	body->CreateFixture(&fixtureDef);
 	
 	[sprite setPhysicsBody:body];

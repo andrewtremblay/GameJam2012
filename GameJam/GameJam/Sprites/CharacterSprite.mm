@@ -8,7 +8,6 @@
 
 #import "CharacterSprite.h"
 
-#define PTM_RATIO 32
 #define kMAXHEIGHT  40.0f
 #define kMAXWIDTH   40.0f
 
@@ -70,7 +69,8 @@
     fixtureDefPoly.shape = &polygon;
     fixtureDefPoly.density = 1.0f;
     fixtureDefPoly.friction = 0.3f;
-    fixtureDefPoly.userData = self;
+    fixtureDefPoly.filter.categoryBits = kMainCharCategoryBit;
+    fixtureDefPoly.filter.maskBits = kMainCharCollideMask;
     polyBody->CreateFixture(&fixtureDefPoly);
     
 	[self setPhysicsBody:polyBody];

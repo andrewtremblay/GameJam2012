@@ -110,7 +110,9 @@ static ControlManager* s_controlManager;
     if(CGPointEqualToPoint(p, CGPointZero)){
         // rotation by velocity, (should be immediate)
         b2Vec2 vec = self.charSprite.getPhysicsBody->GetLinearVelocity();
-        [self.charSprite setRotation:(-1*CC_RADIANS_TO_DEGREES(ccpToAngle(CGPointMake(vec.x, vec.y))))];
+        
+        self.charSprite.getPhysicsBody->SetTransform(self.charSprite.getPhysicsBody->GetPosition(), (-1*CC_RADIANS_TO_DEGREES(ccpToAngle(CGPointMake(vec.x, vec.y)))));
+
     }else {
         // rotation by point, (should be immediate)
         [self.charSprite setRotation:(-1*CC_RADIANS_TO_DEGREES(ccpToAngle(p)))];

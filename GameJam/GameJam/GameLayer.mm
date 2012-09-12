@@ -159,16 +159,31 @@
 	b2EdgeShape groundBox;		
 	// bottom
 	groundBox.Set(b2Vec2(0,0), b2Vec2(s.width/PTM_RATIO,0));
-	groundBody->CreateFixture(&groundBox,0);
-	// top
+	b2Fixture* bottom = groundBody->CreateFixture(&groundBox,0);
+    b2Filter fB = bottom->GetFilterData();
+    fB.categoryBits = kBackgroundCategoryBit;
+    bottom->SetFilterData(fB);
+//    [[bottom filter] setCategoryBits:kBackgroundCategoryBit];
+
+    // top
 	groundBox.Set(b2Vec2(0,s.height/PTM_RATIO), b2Vec2(s.width/PTM_RATIO,s.height/PTM_RATIO));
-	groundBody->CreateFixture(&groundBox,0);
+	b2Fixture* top = groundBody->CreateFixture(&groundBox,0);
+    b2Filter fT = top->GetFilterData();
+    fT.categoryBits = kBackgroundCategoryBit;
+    top->SetFilterData(fT);
 	// left
 	groundBox.Set(b2Vec2(0,s.height/PTM_RATIO), b2Vec2(0,0));
-	groundBody->CreateFixture(&groundBox,0);
+	b2Fixture* left = groundBody->CreateFixture(&groundBox,0);
+    b2Filter fL = left->GetFilterData();
+    fL.categoryBits = kBackgroundCategoryBit;
+    left->SetFilterData(fL);
+
 	// right
 	groundBox.Set(b2Vec2(s.width/PTM_RATIO,s.height/PTM_RATIO), b2Vec2(s.width/PTM_RATIO,0));
-	groundBody->CreateFixture(&groundBox,0);
+	b2Fixture* right = groundBody->CreateFixture(&groundBox,0);
+    b2Filter fR = right->GetFilterData();
+    fR.categoryBits = kBackgroundCategoryBit;
+    right->SetFilterData(fR);
 }
 
 //Getters

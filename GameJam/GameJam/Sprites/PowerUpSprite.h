@@ -11,6 +11,6 @@
 #import <GLKit/GLKit.h>
 #import "SpriteManager.h"
 @interface PowerUpSprite : PhysicsSprite
-
+- (void)updatePhysicsBoxWithPoint:(CGPoint)p;
 
 @end

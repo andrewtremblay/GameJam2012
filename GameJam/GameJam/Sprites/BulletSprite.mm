@@ -24,6 +24,10 @@
     fixtureDefPoly.shape = &polygon;
     fixtureDefPoly.density = 1.0f;
     fixtureDefPoly.friction = 0.3f;
+    
+    fixtureDefPoly.filter.categoryBits = kBulletCategoryBit;
+    fixtureDefPoly.filter.maskBits = kBulletCollideMask;
+    
     polyBody->CreateFixture(&fixtureDefPoly);
     
 	[self setPhysicsBody:polyBody];

@@ -21,7 +21,6 @@
     b2CircleShape circle;
     circle.m_radius = 10.0f/PTM_RATIO;
     
-    
 //    b2PolygonShape polygon;
 //    polygon.SetAsBox(4.0f/PTM_RATIO, 4.0f/PTM_RATIO);
     
@@ -29,6 +28,8 @@
     fixtureDefPoly.shape = &circle;
     fixtureDefPoly.density = 1.0f;
     fixtureDefPoly.friction = 0.3f;
+    fixtureDefPoly.filter.categoryBits = kPowerupCategoryBit; 
+    fixtureDefPoly.filter.maskBits = kPowerupCollideMask;
     polyBody->CreateFixture(&fixtureDefPoly);
     
 	[self setPhysicsBody:polyBody];

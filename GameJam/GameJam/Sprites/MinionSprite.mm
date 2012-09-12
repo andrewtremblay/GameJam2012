@@ -7,7 +7,6 @@
 //
 
 #import "MinionSprite.h"
-#define PTM_RATIO 32
 #define kMAXHEIGHT  30.0f
 #define kMAXWIDTH   30.0f
 
@@ -70,6 +69,8 @@
     fixtureDefPoly.shape = &polygon;
     fixtureDefPoly.density = 1.0f;
     fixtureDefPoly.friction = 0.3f;
+    fixtureDefPoly.filter.categoryBits = kEnemyCategoryBit; 
+    fixtureDefPoly.filter.maskBits = kEnemyCollideMask; 
     polyBody->CreateFixture(&fixtureDefPoly);
     
 	[self setPhysicsBody:polyBody];
