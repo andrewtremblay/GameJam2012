@@ -186,8 +186,8 @@
 		F0287883160014DA007CFA9E /* MinionSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F0287882160014DA007CFA9E /* MinionSprite.m */; };
 		F0287886160014ED007CFA9E /* PowerUpSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F0287885160014ED007CFA9E /* PowerUpSprite.m */; };
 		F028788916001506007CFA9E /* BulletSprite.m in Sources */ = {isa = PBXBuildFile; fileRef = F028788816001506007CFA9E /* BulletSprite.m */; };
-		F028788D16001584007CFA9E /* EventsManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F028788C16001584007CFA9E /* EventsManager.m */; };
-		F028789016001592007CFA9E /* ControlManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F028788F16001592007CFA9E /* ControlManager.m */; };
+		F028788D16001584007CFA9E /* EventsManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = F028788C16001584007CFA9E /* EventsManager.mm */; };
+		F028789016001592007CFA9E /* ControlManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = F028788F16001592007CFA9E /* ControlManager.mm */; };
 		F0287893160016AD007CFA9E /* GameLayer.mm in Sources */ = {isa = PBXBuildFile; fileRef = F0287892160016AD007CFA9E /* GameLayer.mm */; };
 /* End PBXBuildFile section */
 
@@ -563,9 +563,9 @@
 		F028788716001506007CFA9E /* BulletSprite.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = BulletSprite.h; path = Sprites/BulletSprite.h; sourceTree = "<group>"; };
 		F028788816001506007CFA9E /* BulletSprite.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = BulletSprite.m; path = Sprites/BulletSprite.m; sourceTree = "<group>"; };
 		F028788B16001584007CFA9E /* EventsManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = EventsManager.h; path = Managers/EventsManager.h; sourceTree = "<group>"; };
-		F028788C16001584007CFA9E /* EventsManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = EventsManager.m; path = Managers/EventsManager.m; sourceTree = "<group>"; };
+		F028788C16001584007CFA9E /* EventsManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = EventsManager.mm; path = Managers/EventsManager.mm; sourceTree = "<group>"; };
 		F028788E16001592007CFA9E /* ControlManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ControlManager.h; path = Managers/ControlManager.h; sourceTree = "<group>"; };
-		F028788F16001592007CFA9E /* ControlManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ControlManager.m; path = Managers/ControlManager.m; sourceTree = "<group>"; };
+		F028788F16001592007CFA9E /* ControlManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = ControlManager.mm; path = Managers/ControlManager.mm; sourceTree = "<group>"; };
 		F0287891160016AD007CFA9E /* GameLayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GameLayer.h; sourceTree = "<group>"; };
 		F0287892160016AD007CFA9E /* GameLayer.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = GameLayer.mm; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -1190,9 +1190,9 @@
 				3136375D160017DE003BC4B5 /* SpriteManager.h */,
 				3136375E160017DE003BC4B5 /* SpriteManager.mm */,
 				F028788B16001584007CFA9E /* EventsManager.h */,
-				F028788C16001584007CFA9E /* EventsManager.m */,
+				F028788C16001584007CFA9E /* EventsManager.mm */,
 				F028788E16001592007CFA9E /* ControlManager.h */,
-				F028788F16001592007CFA9E /* ControlManager.m */,
+				F028788F16001592007CFA9E /* ControlManager.mm */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -1425,8 +1425,8 @@
 				F0287883160014DA007CFA9E /* MinionSprite.m in Sources */,
 				F0287886160014ED007CFA9E /* PowerUpSprite.m in Sources */,
 				F028788916001506007CFA9E /* BulletSprite.m in Sources */,
-				F028788D16001584007CFA9E /* EventsManager.m in Sources */,
-				F028789016001592007CFA9E /* ControlManager.m in Sources */,
+				F028788D16001584007CFA9E /* EventsManager.mm in Sources */,
+				F028789016001592007CFA9E /* ControlManager.mm in Sources */,
 				F0287893160016AD007CFA9E /* GameLayer.mm in Sources */,
 				3136375F160017DE003BC4B5 /* SpriteManager.mm in Sources */,
 			);
