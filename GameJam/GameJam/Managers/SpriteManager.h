@@ -8,11 +8,16 @@
 
 #import <Foundation/Foundation.h>
 #import "GameLayer.h"
+#import "PhysicsSprite.h"
+#import "CharacterSprite.h"
+
 
 @interface SpriteManager : NSObject
     +(SpriteManager*)shared;
     @property (strong, nonatomic) CCTexture2D* spriteTexture;
     @property (strong, nonatomic) GameLayer *worldLayer;
-    -(void) addNewSpriteAtPosition:(CGPoint)p;
+    -(PhysicsSprite *) addNewSpriteAtPosition:(CGPoint)p;   
+    -(CharacterSprite *) addNewCharacterSpriteAtPosition:(CGPoint)p;
+
 //
 @end
