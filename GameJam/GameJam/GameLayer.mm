@@ -118,7 +118,7 @@
 {
     //init char sprite and attach it to it's keepers
     CGSize s = [CCDirector sharedDirector].winSize;
-    CharacterSprite *charSprite = [[SpriteManager shared] addCharacterAtPosition:ccp(s.width/2, s.height/2)];
+    CharacterSprite *charSprite = [[SpriteManager shared] makeCharacterAtPosition:ccp(s.width/2, s.height/2)];
     [[ControlManager shared] setCharSprite:charSprite];        
 }
 
@@ -126,7 +126,7 @@
 {
     CGSize s = [CCDirector sharedDirector].winSize;
     [[SpriteManager shared] makePowerUpAtPosition:ccp( s.width - s.width/3,  s.height - s.height/3)];
-    [[SpriteManager shared] addMinionAtPosition:ccp( s.width/3,  s.height - s.height/3)];
+    [[SpriteManager shared] makeMinionAtPosition:ccp( s.width/3,  s.height - s.height/3)];
     [[SpriteManager shared] makeBulletAtPosition:ccp( s.width - s.width/3,  s.height/3)];
 }
 
@@ -162,6 +162,10 @@
 	// Instruct the world to perform a single step of simulation. It is
 	// generally best to keep the time step and iterations fixed.
 	world->Step(dt, velocityIterations, positionIterations);
+    
+    //update charsprite position(move/abstract this somewhere else, probably)
+    CharacterSprite *cS = [[ControlManager shared] charSprite];
+    [[EventsManager shared] aCharacterSprite:cS movedToPoint:cS.positionPixels];
 }
 
 

@@ -27,8 +27,16 @@
     -(b2ContactListener *)makeSpriteListener;
     @property (assign, nonatomic) b2ContactListener* spriteContactListener;
     #pragma mark - "AI" "behavior"
-    //right now just simple seek/avoid for the enemies, maybe some shooting/greed later too
     //if this gets too complicated move it out to an AIManager
+    #pragma mark AI reactions
+    //right now just simple seek/avoid for the enemies, 
+    //maybe some shooting/greed later too
+    -(void)enemiesSeekToPoint:(CGPoint) destPoint;
+    -(void)enemiesRunFromPoint:(CGPoint) destPoint;
+
+    #pragma mark AI triggers
+    //right now just watch the character
+    //maybe have a call for item spawning or powerup grabbed later, too.
     -(void)aCharacterSprite:(CharacterSprite*)charSprite movedToPoint:(CGPoint)destPoint;
 
     #pragma mark - collisions

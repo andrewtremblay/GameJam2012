@@ -91,8 +91,8 @@ static ControlManager* s_controlManager;
     // set body velocity by the incoming point
     b->SetLinearVelocity(b2Vec2(vx,vy));
         //+b->GetLinearVelocity());
-    float vel;
-    vel = b->GetLinearVelocity().Normalize();
+//    float vel;
+//    vel = b->GetLinearVelocity().Normalize();
 }
 
 -(void)setCharDirection:(CGPoint)p //CGPointZero will try to use velocity of char for direction
@@ -127,7 +127,6 @@ static ControlManager* s_controlManager;
     CGPoint adjustedPoint = ccp(pointOfPress.x/PTM_RATIO, pointOfPress.y/PTM_RATIO);
     b2Vec2 charPos = self.charSprite.getPhysicsBody->GetPosition();
     
-    
     CGPoint vel = CGPointZero;
     if(fabsf(charPos.x - adjustedPoint.x) > 1){
         vel.x = (adjustedPoint.x - charPos.x);
@@ -135,13 +134,6 @@ static ControlManager* s_controlManager;
     if(fabsf(charPos.y - adjustedPoint.y) > 1){
         vel.y = (adjustedPoint.y - charPos.y);
     }
-//    if(charPos.y < p.y){
-//        vel.y = kCharMaxSpeed;
-////        vel.y = (charPos.y - p.y);
-//    }else if(charPos.y > p.y){
-//        vel.y = -kCharMaxSpeed;
-////        vel.y = (p.y - charPos.y);
-//    }
     vel.x = clampf(vel.x, -kCharMaxSpeed, kCharMaxSpeed);
     vel.y = clampf(vel.y, -kCharMaxSpeed, kCharMaxSpeed);
     

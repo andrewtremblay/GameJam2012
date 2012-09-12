@@ -17,12 +17,6 @@
 @implementation CharacterSprite
 @synthesize vert = _vert;
 @synthesize vertCount = _vertCount;
-- (void)createBullets {
-    for (int i=0; i<self.vertCount ; i++) {
-        CGPoint p = CGPointMake(self.vert[i].x, self.vert[i].y);
-        [[SpriteManager shared] makeBulletAtPosition:p];
-    }
-}
 
 - (void)updatePhysicsBoxWithPoint:(CGPoint)p numberOfVertex:(int)count {
     b2BodyDef bodyDefPoly;
@@ -78,6 +72,31 @@
 	[self setPhysicsBody:polyBody];
 }
 
+- (void)createBullets {
+    for (int i=0; i<self.vertCount ; i++) {
+        CGPoint p = CGPointMake(self.vert[i].x, self.vert[i].y);
+        [[SpriteManager shared] makeBulletAtPosition:p];
+    }
+}
+
+- (void)shoot
+{
+    
+}
+
+
+//helper getters
+-(CGPoint)positionMeters
+{
+    b2Vec2 charPos = self.getPhysicsBody->GetPosition();
+    return CGPointMake(charPos.x, charPos.y);
+}
+-(CGPoint)positionPixels
+{
+    return ccpMult(self.positionMeters, PTM_RATIO);
+}
+
+//collision
 -(void)collidedWith:(PhysicsSprite*)collidee
 {
     if([collidee isKindOfClass:[MinionSprite class]]){

@@ -19,5 +19,10 @@
 
 - (void)updatePhysicsBoxWithPoint:(CGPoint)p numberOfVertex:(int)count;
 - (void)createBullets;
+- (void)shoot; //separate from create for when we eventually want to recycle
+
+//helper getters
+-(CGPoint)positionMeters;
+-(CGPoint)positionPixels;
 
 @end

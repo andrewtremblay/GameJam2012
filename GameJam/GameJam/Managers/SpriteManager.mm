@@ -9,11 +9,18 @@
 #import "SpriteManager.h"
 
 
+#define kEnemyMaxSpeed 5.0f
+
 static SpriteManager* s_spriteManager;
+
+
 
 @implementation SpriteManager
     @synthesize spriteTexture = _spriteTexture;
     @synthesize worldLayer = _worldLayer;
+
+    @synthesize enemiesArray = _enemiesArray;
+
 
     +(SpriteManager*)shared {
         static dispatch_once_t onceToken;
@@ -31,11 +38,13 @@ static SpriteManager* s_spriteManager;
         CCSpriteBatchNode *parent = [CCSpriteBatchNode batchNodeWithFile:@"blackTexture.png" capacity:100];
         self.spriteTexture = [parent texture];
         [self.worldLayer addChild:parent z:0 tag:kTagParentNode];
+        self.enemiesArray = [NSMutableArray array];
     //    CGSize s = [CCDirector sharedDirector].winSize;
     //    [self addNewSpriteAtPosition:ccp(s.width/2, s.height/2)]; //delete this, but good for debugging
     }
 
-    - (CharacterSprite *)addCharacterAtPosition:(CGPoint)p
+#pragma mark Makers
+    - (CharacterSprite *)makeCharacterAtPosition:(CGPoint)p
     {
         CCNode *parent = [self.worldLayer getChildByTag:kTagParentNode];
         CharacterSprite* cSprite = [[CharacterSprite alloc] initWithTexture:self.spriteTexture];
@@ -64,22 +73,20 @@ static SpriteManager* s_spriteManager;
         return sprite;
     }
 
-    - (MinionSprite *)addMinionAtPosition:(CGPoint)p
+    - (MinionSprite *)makeMinionAtPosition:(CGPoint)p
     {
         CCNode *parent = [self.worldLayer getChildByTag:kTagParentNode];
         MinionSprite* sprite = [[MinionSprite alloc] initWithTexture:self.spriteTexture];
         [parent addChild:sprite];
         sprite.position = ccp(p.x,p.y);
         [sprite updatePhysicsBoxWithPoint:p numberOfVertex:3];
+        
+        [[self enemiesArray] addObject:sprite]; 
+        
         return sprite;
     }
 
-
-    -(void) createDynamicPoly {
-        
-    }
-
-    -(void) addNewSpriteAtPosition:(CGPoint)p
+    -(void) makeNewSpriteAtPosition:(CGPoint)p
     {
         CCLOG(@"Add sprite %0.2f x %02.f",p.x,p.y);
         CCNode *parent = [self.worldLayer getChildByTag:kTagParentNode];
@@ -114,5 +121,43 @@ static SpriteManager* s_spriteManager;
         
         [sprite setPhysicsBody:body];
     }
+
+#pragma mark Updaters
+    -(void)stopAllEnemies
+    {
+        NSLog(@"stopAllEnemies");
+    }
+
+    -(void)updateAllEnemySeekPosition:(CGPoint)p;
+    {
+        NSLog(@"updateAllEnemySeekPosition:");        
+//        NSLog(@"meters: %f , %f", p.x, p.y);
+//        NSLog(@"pixels: %f , %f", p.x*PTM_RATIO, p.y*PTM_RATIO);
+        for(MinionSprite* enemySprite in self.enemiesArray){
+            NSLog(@"enemySprite:update");        
+
+            //calc velocity (look into gravity instead?)
+            CGPoint adjustedPoint = ccp(p.x/PTM_RATIO, p.y/PTM_RATIO);
+            b2Vec2 enemPos = enemySprite.getPhysicsBody->GetPosition();
+            CGPoint vel = CGPointZero;
+            if(fabsf(enemPos.x - adjustedPoint.x) > 1){
+                vel.x = (adjustedPoint.x - enemPos.x);
+            }
+            if(fabsf(enemPos.y - adjustedPoint.y) > 1){
+                vel.y = (adjustedPoint.y - enemPos.y);
+            }
+            vel.x = clampf(vel.x, -kEnemyMaxSpeed, kEnemyMaxSpeed);
+            vel.y = clampf(vel.y, -kEnemyMaxSpeed, kEnemyMaxSpeed);
+            b2Body *b = enemySprite.getPhysicsBody;
+            b->SetLinearVelocity(b2Vec2(vel.x,vel.y));
+
+        }
+    }
+
+    -(void)updateAllEnemyAvoidPosition:(CGPoint)p;
+    {
+        NSLog(@"updateAllEnemyAvoidPosition");
+    }
+
 
 @end

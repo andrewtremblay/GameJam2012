@@ -29,13 +29,24 @@ static EventsManager* s_eventsManager;
         return self.spriteContactListener;        
     }
 
-#pragma mark - "AI" "behavior"
-//right now just simple seek/avoid for the enemies, maybe some shooting/greed later too
--(void)aCharacterSprite:(CharacterSprite*)charSprite movedToPoint:(CGPoint)destPoint
-{
-    [[SpriteManager shared] updateAllEnemySeekPosition:destPoint]; 
-//    [[SpriteManager shared] updateAllEnemyAvoidPosition:destPoint];
-}
+    #pragma mark - "AI" "behavior"
+    #pragma mark AI reactions
+    -(void)enemiesSeekToPoint:(CGPoint) destPoint
+    {
+        [[SpriteManager shared] updateAllEnemySeekPosition:destPoint]; 
+    }
+    -(void)enemiesRunFromPoint:(CGPoint) destPoint
+    {
+        [[SpriteManager shared] updateAllEnemyAvoidPosition:destPoint];
+    }
+
+    #pragma mark AI triggers
+    -(void)aCharacterSprite:(CharacterSprite*)charSprite movedToPoint:(CGPoint)destPoint
+    {
+        //    TODO: Some additional logic here, always separate behavior from the things that cause it.
+        [self enemiesSeekToPoint:destPoint];
+    }
+
 
 
 #pragma mark - collisions

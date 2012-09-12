@@ -17,10 +17,18 @@
     +(SpriteManager*)shared;
     @property (strong, nonatomic) CCTexture2D* spriteTexture;
     @property (strong, nonatomic) GameLayer *worldLayer;
-    -(void)addNewSpriteAtPosition:(CGPoint)p;
-    -(id)addCharacterAtPosition:(CGPoint)p;
+
+    @property (strong, nonatomic) NSMutableArray *enemiesArray;
+
+#pragma mark Makers
+    -(void)makeNewSpriteAtPosition:(CGPoint)p;
+    -(id)makeCharacterAtPosition:(CGPoint)p;
     -(id)makeBulletAtPosition:(CGPoint)p;
     -(id)makePowerUpAtPosition:(CGPoint)p;
-    -(id)addMinionAtPosition:(CGPoint)p;
-//
+    -(id)makeMinionAtPosition:(CGPoint)p;
+
+#pragma mark Updaters
+    -(void)stopAllEnemies;
+    -(void)updateAllEnemySeekPosition:(CGPoint)p;
+    -(void)updateAllEnemyAvoidPosition:(CGPoint)p;
 @end
