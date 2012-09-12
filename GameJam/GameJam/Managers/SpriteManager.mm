@@ -13,8 +13,6 @@
 
 static SpriteManager* s_spriteManager;
 
-
-
 @implementation SpriteManager
     @synthesize spriteTexture = _spriteTexture;
     @synthesize worldLayer = _worldLayer;
@@ -130,12 +128,10 @@ static SpriteManager* s_spriteManager;
 
     -(void)updateAllEnemySeekPosition:(CGPoint)p;
     {
-        NSLog(@"updateAllEnemySeekPosition:");        
+//        NSLog(@"updateAllEnemySeekPosition:");        
 //        NSLog(@"meters: %f , %f", p.x, p.y);
 //        NSLog(@"pixels: %f , %f", p.x*PTM_RATIO, p.y*PTM_RATIO);
         for(MinionSprite* enemySprite in self.enemiesArray){
-            NSLog(@"enemySprite:update");        
-
             //calc velocity (look into gravity instead?)
             CGPoint adjustedPoint = ccp(p.x/PTM_RATIO, p.y/PTM_RATIO);
             b2Vec2 enemPos = enemySprite.getPhysicsBody->GetPosition();

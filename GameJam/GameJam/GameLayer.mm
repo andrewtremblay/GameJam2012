@@ -126,7 +126,14 @@
 {
     CGSize s = [CCDirector sharedDirector].winSize;
     [[SpriteManager shared] makePowerUpAtPosition:ccp( s.width - s.width/3,  s.height - s.height/3)];
-    [[SpriteManager shared] makeMinionAtPosition:ccp( s.width/3,  s.height - s.height/3)];
+
+    [[SpriteManager shared] makeMinionAtPosition:ccp( s.width - 45,  s.height/3)];
+    [[SpriteManager shared] makeMinionAtPosition:ccp( s.width - 45,  s.height/3 + 45)];
+    [[SpriteManager shared] makeMinionAtPosition:ccp( s.width - 45,  s.height/3 + 90)];
+    [[SpriteManager shared] makeMinionAtPosition:ccp( s.width - 45,  s.height/3 + 135)];
+;
+
+    
     [[SpriteManager shared] makeBulletAtPosition:ccp( s.width - s.width/3,  s.height/3)];
 }
 

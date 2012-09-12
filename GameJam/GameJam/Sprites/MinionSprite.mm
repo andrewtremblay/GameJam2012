@@ -14,6 +14,7 @@
 
 
 @implementation MinionSprite
+@synthesize dead = _dead;
 @synthesize vert = _vert;
 @synthesize vertCount = _vertCount;
 - (void)createBullets {

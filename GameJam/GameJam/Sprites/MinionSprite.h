@@ -12,6 +12,7 @@
 #import "SpriteManager.h"
 
 @interface MinionSprite : PhysicsSprite
+@property (nonatomic, assign) BOOL dead;
 
 
 @property (nonatomic, assign)b2Vec2* vert;
