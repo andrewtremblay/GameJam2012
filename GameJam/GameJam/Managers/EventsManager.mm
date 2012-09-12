@@ -60,12 +60,26 @@ static EventsManager* s_eventsManager;
 -(void)aCharacterSprite:(CharacterSprite*)charSprite hitPowerup:(PowerUpSprite*)powerUpSprite
 {
     NSLog(@"CHAR HIT ITEM / ITEM HIT CHAR");
+    if(!powerUpSprite.spent){
+        powerUpSprite.spent = true;
+        [charSprite setVertCount:4];
+    }
 }
 
 -(void)aBulletSprite:(BulletSprite*)bulletSprite hitEnemy:(MinionSprite*)enemySprite
 {
     NSLog(@"ENEMY HIT BULLET / BULLET HIT ENEMY");
 }
+
+-(void)cleanUpCollisions
+{ 
+    //kill the dead, after all collisions are resolved
+    [[SpriteManager shared] cleanSpentPowerups];
+    [[SpriteManager shared] cleanEnemyCorpses];
+    [[SpriteManager shared] cleanBullets];
+    
+}
+
 
 #pragma mark collision checking 
 -(PhysicsSprite *)findCollideeInUserDataA:(id)userDataA orUserDataB:(id)userDataB

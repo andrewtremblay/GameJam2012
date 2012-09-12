@@ -115,6 +115,10 @@
     //update charsprite position(move/abstract this somewhere else, probably)
     CharacterSprite *cS = [[ControlManager shared] charSprite];
     [[EventsManager shared] aCharacterSprite:cS movedToPoint:cS.positionPixels];
+    [cS safeUpdateVertices];
+    
+    [[EventsManager shared] cleanUpCollisions];
+
 }
 
 
