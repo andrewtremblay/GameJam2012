@@ -135,10 +135,12 @@
 - (void)createBullets {
     if([self.bulletVectors count] == self.vertCount){
         for (int i=0; i< self.vertCount ; i++) {
-            CGPoint p = CGPointMake(self.vert[i].x, self.vert[i].y);
-            BulletSprite *bill = [[SpriteManager shared] makeBulletAtPosition:p];
+            CGPoint p = ([[self.bulletVectors objectAtIndex:i] CGPointValue]);
+            CGPoint charPos = self.positionPixels;
+            BulletSprite *bill = [[SpriteManager shared] makeBulletAtPosition:
+                                  CGPointMake(p.x + charPos.x, p.y + charPos.y)];
             CGPoint startVelocity = [[self.bulletVectors objectAtIndex:i] CGPointValue];
-//            [[SpriteManager shared] setVelocityOfBullet:bill newVelocity:startVelocity relativeToCharSprite:YES];
+            [[SpriteManager shared] setVelocityOfBullet:bill newVelocity:startVelocity relativeToCharSprite:YES];
         }
     }
 }
@@ -179,6 +181,7 @@
              [NSValue valueWithCGPoint:CGPointMake(-1, 1)]];
         }break;
     }
+    [self createBullets];
 }
 
 
@@ -190,6 +193,7 @@
 }
 -(CGPoint)positionPixels
 {
+    //TODO: adjust for center of mass.
     return ccpMult(self.positionMeters, PTM_RATIO);
 }
 

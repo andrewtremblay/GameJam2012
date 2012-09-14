@@ -8,6 +8,7 @@
 
 #import "EventsManager.h"
 #import "SpriteManager.h"
+#import "ControlManager.h"
 
 
 static EventsManager* s_eventsManager;
@@ -28,7 +29,7 @@ static EventsManager* s_eventsManager;
         self.spriteContactListener = new SpriteContactListener();
         return self.spriteContactListener;        
     }
-
+    
     @synthesize mainGameState = _mainGameState;
     #pragma mark - BIG EVENTS
     -(void)GAME_BEGIN { //(re)initializaion
@@ -51,6 +52,23 @@ static EventsManager* s_eventsManager;
         self.mainGameState = gameMainMenu;
     }
 
+    #pragma mark - timer/stepper logic
+    @synthesize timeLastShot = _timeLastShot;
+    -(void)checkIfTimeToShoot
+    {
+        double doubleTimeThisIsAPun = (double) kMinimumTimeToShoot;
+        double secomndsSinceLastShot = self.timeLastShot.timeIntervalSinceNow / -1;
+        
+        if(secomndsSinceLastShot > doubleTimeThisIsAPun || self.timeLastShot == nil)
+        {
+            [self timeToShoot];
+        }
+    }
+
+    -(void)timeToShoot{
+        self.timeLastShot = [NSDate date];
+        [ [[ControlManager shared]  charSprite ] shoot];
+    }
 
     #pragma mark - "AI" "behavior"
     #pragma mark AI reactions

@@ -40,7 +40,10 @@ enum gameState {
     -(void)GAME_RESUME;
     -(void)GAME_QUIT;
 
-
+    #pragma mark - timer/stepper logic
+    @property (nonatomic, strong) NSDate* timeLastShot;
+    -(void)checkIfTimeToShoot;
+    -(void)timeToShoot;
 
     #pragma mark - "AI" "behavior"
     //if this gets too complicated move it out to an AIManager

@@ -23,6 +23,7 @@ static ControlManager* s_controlManager;
 @synthesize shootSetting = _shootSetting; //controlShootSetting
 
 
+
 @synthesize startPoint = _startPoint;
 @synthesize endPoint = _endPoint;
 
@@ -109,6 +110,8 @@ static ControlManager* s_controlManager;
     }
 }
 
+
+
 //interaction handlers
 
 
@@ -166,7 +169,7 @@ static ControlManager* s_controlManager;
         location = [[CCDirector sharedDirector] convertToGL:location];
         _endPoint = location;
     }
-    [self pressFoundAtPoint:_endPoint];
+    [self setCharVelocityRelativeToPress:_endPoint];
     if (ccpLengthSQ(ccpSub(_startPoint, _endPoint)) > 25)
     {        
 

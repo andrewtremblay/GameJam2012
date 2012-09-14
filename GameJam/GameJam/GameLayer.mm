@@ -90,6 +90,7 @@
     [[EventsManager shared] aCharacterSprite:cS movedToPoint:cS.positionPixels];
     [cS safeUpdateVertices];
     [[EventsManager shared] cleanUpCollisions];
+    [[EventsManager shared] checkIfTimeToShoot];
 }
 
 

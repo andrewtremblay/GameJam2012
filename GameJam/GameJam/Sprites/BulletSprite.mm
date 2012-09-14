@@ -7,6 +7,7 @@
 //
 
 #import "BulletSprite.h"
+#import "SpriteManager.h"
 
 @implementation BulletSprite
 @synthesize velocity = _velocity;

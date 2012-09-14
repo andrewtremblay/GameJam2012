@@ -32,4 +32,7 @@
 #define kVelocityIterations 8;
 #define kPositionIterations 1;
 
+#define kMinimumTimeToShoot 2;
+
+
 #endif

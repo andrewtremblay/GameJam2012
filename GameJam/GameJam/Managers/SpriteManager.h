@@ -31,17 +31,12 @@
     -(id)makeMinionAtPosition:(CGPoint)p;
 
 #pragma mark Updaters
-//-(void)setVelocityOfBullet:(BulletSprite *)bulletToChange
-//               newVelocity:(CGPoint)newVel 
-//      relativeToCharSprite:(BOOL)adjust;
-
-
-
     -(void)stopAllEnemies;
     -(void)updateAllEnemySeekPosition:(CGPoint)p; //no flags for this, just setting velocity
     -(void)updateAllEnemyAvoidPosition:(CGPoint)p;
 
 -(void)removePhysicsSprite:(PhysicsSprite*)spriteToRemove;
+-(void)setVelocityOfBullet:(BulletSprite *)bulletToChange newVelocity:(CGPoint)newVel relativeToCharSprite:(BOOL)adjust;
 
 
 #pragma mark Cleanups

@@ -22,6 +22,8 @@ enum {
 @interface ControlManager : NSObject
 +(ControlManager*)shared; //singleton
 
+
+
 //the character
 @property (nonatomic, strong) CharacterSprite* charSprite;
 
@@ -35,7 +37,6 @@ enum {
 
 -(void)moveInDirection:(CGPoint)p;//TODO, VECTOR PROBABLY
 -(void)shootInDirection:(CGPoint)p;//TODO, VECTOR PROBABLY
-
 
 
 -(void)setCharVelocityRelativeToPress:(CGPoint)pointOfPress;

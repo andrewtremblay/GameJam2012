@@ -7,6 +7,7 @@
 //
 #import "PhysicsSprite.h"
 #import "SpriteManager.h"
+#import "ControlManager.h"
 
 
 #define kEnemyMaxSpeed 5.0f
@@ -129,9 +130,20 @@ static SpriteManager* s_spriteManager;
     }
 
 #pragma mark Updaters
--(void) setVelocityOfBullet:(BulletSprite *)bullet newVelocity:(CGPoint) newVel relativeToCharSprite:(BOOL)adjust{
+    -(void)setVelocityOfBullet:(BulletSprite *)bulletToChange newVelocity:(CGPoint)newVel relativeToCharSprite:(BOOL)adjust{
+        b2Body *b = bulletToChange.getPhysicsBody;
+        b2Vec2 velVect = b2Vec2(newVel.x,newVel.y);
+        
+        if(adjust){
+          b2Body *charB = [[[ControlManager shared] charSprite] getPhysicsBody]; 
+          float angle = charB->GetAngle();
+            b2Rot r; 
+            r.Set(angle);
+            velVect = b2Mul(r, velVect);
+        } 
+        b->SetLinearVelocity(velVect);
 
-}
+    }
 
 
     -(void)stopAllEnemies
