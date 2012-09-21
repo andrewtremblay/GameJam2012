@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3133A56F160CCBED00C3BEC2 /* ShapeBulletVars.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3133A56E160CCBED00C3BEC2 /* ShapeBulletVars.plist */; };
 		3136375F160017DE003BC4B5 /* SpriteManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3136375E160017DE003BC4B5 /* SpriteManager.mm */; };
 		31A2C64D160110D100526786 /* GameLayer+inits.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31A2C64C160110D100526786 /* GameLayer+inits.mm */; };
 		F0287649160010F0007CFA9E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0287648160010F0007CFA9E /* QuartzCore.framework */; };
@@ -194,6 +195,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		3133A56E160CCBED00C3BEC2 /* ShapeBulletVars.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ShapeBulletVars.plist; path = HelperData/ShapeBulletVars.plist; sourceTree = "<group>"; };
 		3136375D160017DE003BC4B5 /* SpriteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteManager.h; path = Managers/SpriteManager.h; sourceTree = "<group>"; };
 		3136375E160017DE003BC4B5 /* SpriteManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SpriteManager.mm; path = Managers/SpriteManager.mm; sourceTree = "<group>"; };
 		3136376516002692003BC4B5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -679,6 +681,7 @@
 				F0287672160010F0007CFA9E /* Info.plist */,
 				F0287673160010F0007CFA9E /* iTunesArtwork */,
 				F0287874160010F3007CFA9E /* blocks.png */,
+				3133A56E160CCBED00C3BEC2 /* ShapeBulletVars.plist */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -1280,6 +1283,7 @@
 				F02877B2160010F2007CFA9E /* ChangeLog in Resources */,
 				F0287875160010F3007CFA9E /* blocks.png in Resources */,
 				F028789A160021E3007CFA9E /* blackTexture.png in Resources */,
+				3133A56F160CCBED00C3BEC2 /* ShapeBulletVars.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

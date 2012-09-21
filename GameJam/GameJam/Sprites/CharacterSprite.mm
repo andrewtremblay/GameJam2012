@@ -21,11 +21,15 @@
 
 
 @implementation CharacterSprite
+
+@synthesize health = _health;
+
 @synthesize vert = _vert;
 @synthesize vertCount = _vertCount; //alweays holds the most up to date desired vert count
 @synthesize lastVertCount = _lastVertCount; //for update safety/speed
 
 @synthesize bulletVectors = _bulletVectors;
+@synthesize bulletEmitPoints = _bulletEmitPoints;
 
 
 @synthesize polygon = _polygon;
@@ -149,6 +153,7 @@
 {
     //update bulletVectors
     self.bulletVectors = [NSMutableArray array];
+    self.bulletEmitPoints = [NSMutableArray array];
     switch (self.vertCount) {
         case 3: {
             [self.bulletVectors addObject:
@@ -157,6 +162,13 @@
                 [NSValue valueWithCGPoint:CGPointMake(1, 0)]];
             [self.bulletVectors addObject:
                 [NSValue valueWithCGPoint:CGPointMake(-1, 0)]];
+            [self.bulletEmitPoints addObject:
+             [NSValue valueWithCGPoint:CGPointMake(0, 1)]];
+            [self.bulletEmitPoints addObject:
+             [NSValue valueWithCGPoint:CGPointMake(1, 0)]];
+            [self.bulletEmitPoints addObject:
+             [NSValue valueWithCGPoint:CGPointMake(-1, 0)]];
+
         }break;
         case 4: {
             [self.bulletVectors addObject:
