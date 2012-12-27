@@ -77,7 +77,7 @@ enum groupEnemyAiState {
     //-(bool)checkBulletSpriteUserData:(id)userDataA contact:(id)userDataB
 @end
 
-//You could really put this anywhere, but I put it here. It jusrt Made Sense.
+//You could really put this anywhere, but I put it here. It just Made Sense.
 #pragma mark - SpriteContactListener
 class SpriteContactListener : public b2ContactListener
 { 

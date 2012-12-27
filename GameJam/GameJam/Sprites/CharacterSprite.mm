@@ -212,6 +212,8 @@
     return ccpMult(self.positionMeters, PTM_RATIO);
 }
 
+
+
 //collision
 -(void)collidedWith:(PhysicsSprite*)collidee
 {
