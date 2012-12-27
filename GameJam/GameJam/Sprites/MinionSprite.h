@@ -19,5 +19,6 @@
 @property (nonatomic, assign) int vertCount;
 
 - (void)updatePhysicsBoxWithPoint:(CGPoint)p numberOfVertex:(int)count;
+- (void)updateForSwarm:(NSMutableArray*) enemiesArray;
 - (void)createBullets;
 @end
