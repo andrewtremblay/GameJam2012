@@ -177,7 +177,23 @@ static SpriteManager* s_spriteManager;
 
     -(void)updateAllEnemyAvoidPosition:(CGPoint)p;
     {
-        NSLog(@"updateAllEnemyAvoidPosition");
+        for(MinionSprite* enemySprite in self.enemiesArray){
+            //calc velocity (look into gravity instead?)
+            CGPoint adjustedPoint = ccp(p.x/PTM_RATIO, p.y/PTM_RATIO);
+            b2Vec2 enemPos = enemySprite.getPhysicsBody->GetPosition();
+            CGPoint vel = CGPointZero;
+            if(fabsf(enemPos.x - adjustedPoint.x) > 1){
+                vel.x = -(adjustedPoint.x - enemPos.x);
+            }
+            if(fabsf(enemPos.y - adjustedPoint.y) > 1){
+                vel.y = -(adjustedPoint.y - enemPos.y);
+            }
+            vel.x = clampf(vel.x, -kEnemyMaxSpeed, kEnemyMaxSpeed);
+            vel.y = clampf(vel.y, -kEnemyMaxSpeed, kEnemyMaxSpeed);
+            b2Body *b = enemySprite.getPhysicsBody;
+            b->SetLinearVelocity(b2Vec2(vel.x,vel.y));
+            
+        }
     }
 
     -(void)removePhysicsSprite:(PhysicsSprite *)spriteToRemove
