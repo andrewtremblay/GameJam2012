@@ -15,8 +15,8 @@
 @interface CharacterSprite : PhysicsSprite
 
 @property (nonatomic, assign) int health;
--(void)getHealth;
--(void)getBulletVelocitites;
+-(int)getHealth;
+//-(void)getBulletVelocitites;
 
 
 @property (nonatomic, assign)b2Vec2* vert;

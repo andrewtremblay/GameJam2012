@@ -138,7 +138,7 @@
 
 - (void)createBullets {
     if([self.bulletVectors count] == self.vertCount){
-        for (int i=0; i< self.vertCount ; i++) {
+        for (int i=0; i< self.bulletVectors.count ; i++) {
             CGPoint p = ([[self.bulletVectors objectAtIndex:i] CGPointValue]);
             CGPoint charPos = self.positionPixels;
             BulletSprite *bill = [[SpriteManager shared] makeBulletAtPosition:
@@ -198,6 +198,13 @@
 
 
 //helper getters
+-(int)getHealth
+{
+    return self.lastVertCount;
+}
+
+
+
 -(CGPoint)positionMeters
 {
     b2Vec2 charPos = self.getPhysicsBody->GetPosition();
