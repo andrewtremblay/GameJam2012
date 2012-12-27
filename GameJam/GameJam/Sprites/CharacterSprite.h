@@ -11,8 +11,14 @@
 #import <GLKit/GLKit.h>
 #import "SpriteManager.h"
 
+//the maximum vertices we support for the player (inclusive)
+#define kMaxVerts 5 //TODO: up to 8 and the super-mode 10 exception
+#define kMinVerts 3
 
 @interface CharacterSprite : PhysicsSprite
+#define kPlayerMAXHEIGHT  40.0f
+#define kPlayerMAXWIDTH   40.0f
+
 
 @property (nonatomic, assign) int health;
 -(int)getHealth;

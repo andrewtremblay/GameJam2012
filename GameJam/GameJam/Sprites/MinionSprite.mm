@@ -9,8 +9,8 @@
 #import "MinionSprite.h"
 #import "EventsManager.h"
 
-#define kMAXHEIGHT  30.0f
-#define kMAXWIDTH   30.0f
+#define kMinionMAXHEIGHT  30.0f
+#define kMinionMAXWIDTH   30.0f
 
 
 @implementation MinionSprite
@@ -33,7 +33,7 @@
     b2Body *polyBody = [SpriteManager shared].worldLayer.getWorld->CreateBody(&bodyDefPoly);
     
     b2PolygonShape polygon;
-    float w = kMAXWIDTH;
+    float w = kMinionMAXHEIGHT;
     switch (count) {
         case 3: {
             b2Vec2 vertices[3];
@@ -47,9 +47,9 @@
         case 4: {
             b2Vec2 vertices[4];
             vertices[0].Set(0.0f / PTM_RATIO,0.0f / PTM_RATIO);
-            vertices[1].Set(kMAXWIDTH / PTM_RATIO,0.0f/PTM_RATIO);
-            vertices[2].Set(kMAXWIDTH/PTM_RATIO,kMAXWIDTH/PTM_RATIO);
-            vertices[3].Set(0.0f/PTM_RATIO,kMAXWIDTH/PTM_RATIO);
+            vertices[1].Set(kMinionMAXWIDTH / PTM_RATIO,0.0f/PTM_RATIO);
+            vertices[2].Set(kMinionMAXWIDTH/PTM_RATIO,kMinionMAXWIDTH/PTM_RATIO);
+            vertices[3].Set(0.0f/PTM_RATIO,kMinionMAXWIDTH/PTM_RATIO);
             polygon.Set(vertices, count);
             self.vertCount = count;
             self.vert = vertices;

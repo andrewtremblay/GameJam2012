@@ -11,15 +11,6 @@
 #import "PowerUpSprite.h"
 #import "EventsManager.h"
 
-#define kMaxVerts 10
-#define kMinVerts 3
-
-
-#define kMAXHEIGHT  40.0f
-#define kMAXWIDTH   40.0f
-
-
-
 @implementation CharacterSprite
 
 @synthesize health = _health;
@@ -47,10 +38,15 @@
 
 -(void)updateVertCount:(int)vertCount
 {
-    //TODO: clamp this
+    if(vertCount > kMaxVerts){
+        vertCount = kMaxVerts;
+    }else if(vertCount < kMinVerts){
+        vertCount = kMinVerts;
+    }
     self.vertCount = vertCount;
     
-    float w = kMAXWIDTH;
+    
+    float w = kPlayerMAXWIDTH;
     
     b2PolygonShape shape;
 
@@ -66,9 +62,9 @@
         case 4: {
             b2Vec2 vertices[4];
             vertices[0].Set(0.0f / PTM_RATIO,0.0f / PTM_RATIO);
-            vertices[1].Set(kMAXWIDTH / PTM_RATIO,0.0f/PTM_RATIO);
-            vertices[2].Set(kMAXWIDTH/PTM_RATIO,kMAXWIDTH/PTM_RATIO);
-            vertices[3].Set(0.0f/PTM_RATIO,kMAXWIDTH/PTM_RATIO);
+            vertices[1].Set(kPlayerMAXWIDTH / PTM_RATIO,0.0f/PTM_RATIO);
+            vertices[2].Set(kPlayerMAXWIDTH/PTM_RATIO,kPlayerMAXWIDTH/PTM_RATIO);
+            vertices[3].Set(0.0f/PTM_RATIO,kPlayerMAXWIDTH/PTM_RATIO);
             shape.Set(vertices, vertCount);
             self.vert = vertices;
         }break;
@@ -117,7 +113,7 @@
     
     //just put in whatever it's just gonna get blown away
     b2Vec2 vertices[3];
-    float w = kMAXWIDTH;
+    float w = kPlayerMAXWIDTH;
     vertices[0].Set(w/2 / PTM_RATIO,0.0f / PTM_RATIO);
     vertices[1].Set(w / PTM_RATIO,w/PTM_RATIO);
     vertices[2].Set(0.0f/PTM_RATIO,w/PTM_RATIO);
