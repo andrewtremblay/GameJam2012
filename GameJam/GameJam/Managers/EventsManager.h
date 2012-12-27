@@ -21,12 +21,14 @@ enum gameState {
     gameMainMenu = 3
     }; 
 
-/*
- What EventsManager should do:
- Handle collsion checking/handling and higher level behavior descsions
- What EventsManager should not do:
- Create sprites directly or directly control fine sprite behavior like movement, that's for SpriteManager
- */
+
+enum groupEnemyAiState {
+    aiSeekCharacter = 0,  //basic movement, ignore other sprite positions
+    aiAvoidCharacter = 1,
+    aiSwarmSeekCharacter = 2, //swarm movement, basic boid-like behavior
+    aiSwarmAvoidCharacter = 3
+};
+
 #pragma mark - EventsManager
 @interface EventsManager : NSObject
     +(EventsManager*)shared;
@@ -46,6 +48,7 @@ enum gameState {
     -(void)timeToShoot;
 
     #pragma mark - "AI" "behavior"
+    @property (assign, nonatomic) int enemyMode;
     //if this gets too complicated move it out to an AIManager
     #pragma mark AI reactions
     //right now just simple seek/avoid for the enemies, 

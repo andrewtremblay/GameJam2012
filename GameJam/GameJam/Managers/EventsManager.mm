@@ -10,11 +10,12 @@
 #import "SpriteManager.h"
 #import "ControlManager.h"
 
-
 static EventsManager* s_eventsManager;
 
 @implementation EventsManager
+
 @synthesize spriteContactListener = _spriteContactListener;
+
     +(EventsManager*)shared
     {
         static dispatch_once_t onceToken;
@@ -34,6 +35,7 @@ static EventsManager* s_eventsManager;
     #pragma mark - BIG EVENTS
     -(void)GAME_BEGIN { //(re)initializaion
         self.mainGameState = gameRunning;
+        self.enemyMode = aiAvoidCharacter;
     }
 
     -(void)GAME_OVER {
@@ -71,21 +73,45 @@ static EventsManager* s_eventsManager;
     }
 
     #pragma mark - "AI" "behavior"
+    @synthesize enemyMode = _enemyMode;
     #pragma mark AI reactions
     -(void)enemiesSeekToPoint:(CGPoint) destPoint
     {
-        [[SpriteManager shared] updateAllEnemySeekPosition:destPoint]; 
+       // [[SpriteManager shared] setSwarmOff];
+        [[SpriteManager shared] updateAllEnemySeekPosition:destPoint];
     }
     -(void)enemiesRunFromPoint:(CGPoint) destPoint
     {
+       // [[SpriteManager shared] setSwarmOff];
         [[SpriteManager shared] updateAllEnemyAvoidPosition:destPoint];
     }
+    -(void)enemiesSwarmToPoint:(CGPoint) destPoint
+    {
+       // [[SpriteManager shared] setSwarmOn];
+        [[SpriteManager shared] updateAllEnemySwarmSeekPosition:destPoint];
+    }
+    -(void)enemiesSwarmFromPoint:(CGPoint) destPoint
+    {
+       // [[SpriteManager shared] setSwarmOn];
+        [[SpriteManager shared] updateAllEnemySwarmAvoidPosition:destPoint];
+    }
+
 
     #pragma mark AI triggers
     -(void)aCharacterSprite:(CharacterSprite*)charSprite movedToPoint:(CGPoint)destPoint
     {
-        //    TODO: Some additional logic here, always separate behavior from the things that cause it.
-        [self enemiesSeekToPoint:destPoint];
+        if(self.enemyMode == aiSeekCharacter){
+            [self enemiesSeekToPoint:destPoint];
+        }else if(self.enemyMode == aiAvoidCharacter){
+            [self enemiesRunFromPoint:destPoint];
+        }else if(self.enemyMode == aiSwarmSeekCharacter){
+            [self enemiesSwarmToPoint:destPoint];
+        }else if(self.enemyMode == aiSwarmAvoidCharacter){
+            [self enemiesSwarmFromPoint:destPoint];
+        }else {
+            //should never be reached
+            [[SpriteManager shared] stopAllEnemies];
+        }
     }
 
 
@@ -104,7 +130,6 @@ static EventsManager* s_eventsManager;
         }else{
             //GAME OVER, 
             //or not, maybe invincibility is on?
-            //maybe there's health beyond number of sides?
             [[EventsManager shared] GAME_OVER];
         }
     }
@@ -198,7 +223,6 @@ static EventsManager* s_eventsManager;
     [foundMinionSprite collidedWith:collidee]; //collision handling with valid collidee
     return true; //a character and valid collidee was found
 }
-
 
 
 @end
