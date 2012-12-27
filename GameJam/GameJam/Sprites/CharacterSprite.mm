@@ -53,18 +53,18 @@
     switch (vertCount) {
         case 3: {
             b2Vec2 vertices[3];
-            vertices[0].Set(w/2 / PTM_RATIO,0.0f / PTM_RATIO);
-            vertices[1].Set(w / PTM_RATIO,w/PTM_RATIO);
-            vertices[2].Set(0.0f/PTM_RATIO,w/PTM_RATIO);
+            vertices[0].Set(w/2 / PTM_RATIO,-w/2  / PTM_RATIO);
+            vertices[1].Set(0.0f / PTM_RATIO,w/2 /PTM_RATIO);
+            vertices[2].Set(-w/2 /PTM_RATIO,-w/2 /PTM_RATIO);
             shape.Set(vertices, vertCount);
             self.vert = vertices;
         }break;
         case 4: {
             b2Vec2 vertices[4];
-            vertices[0].Set(0.0f / PTM_RATIO,0.0f / PTM_RATIO);
-            vertices[1].Set(kPlayerMAXWIDTH / PTM_RATIO,0.0f/PTM_RATIO);
-            vertices[2].Set(kPlayerMAXWIDTH/PTM_RATIO,kPlayerMAXWIDTH/PTM_RATIO);
-            vertices[3].Set(0.0f/PTM_RATIO,kPlayerMAXWIDTH/PTM_RATIO);
+            vertices[0].Set(-w/2    /PTM_RATIO,     -w/2  /PTM_RATIO);
+            vertices[1].Set(w/2       /PTM_RATIO,     -w/2  /PTM_RATIO);
+            vertices[2].Set(w/2       /PTM_RATIO,     w/2   /PTM_RATIO);
+            vertices[3].Set(-w/2     /PTM_RATIO,     w/2   /PTM_RATIO);
             shape.Set(vertices, vertCount);
             self.vert = vertices;
         }break;
