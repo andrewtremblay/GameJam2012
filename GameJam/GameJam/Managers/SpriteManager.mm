@@ -148,14 +148,14 @@ static SpriteManager* s_spriteManager;
 
     -(void)stopAllEnemies
     {
-        NSLog(@"stopAllEnemies");
+        for(MinionSprite* enemySprite in self.enemiesArray){
+            b2Body *b = enemySprite.getPhysicsBody;
+            b->SetLinearVelocity(b2Vec2(0,0));
+        }
     }
 
     -(void)updateAllEnemySeekPosition:(CGPoint)p;
     {
-//NSLog(@"updateAllEnemySeekPosition:");        
-//NSLog(@"meters: %f , %f", p.x, p.y);
-//NSLog(@"pixels: %f , %f", p.x*PTM_RATIO, p.y*PTM_RATIO);
         for(MinionSprite* enemySprite in self.enemiesArray){
             //calc velocity (look into gravity instead?)
             CGPoint adjustedPoint = ccp(p.x/PTM_RATIO, p.y/PTM_RATIO);
