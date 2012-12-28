@@ -35,7 +35,7 @@ static EventsManager* s_eventsManager;
     #pragma mark - BIG EVENTS
     -(void)GAME_BEGIN { //(re)initializaion
         self.mainGameState = gameRunning;
-        self.enemyMode = aiAvoidCharacter;
+        self.enemyMode = aiSwarmSeekCharacter;
     }
 
     -(void)GAME_OVER {

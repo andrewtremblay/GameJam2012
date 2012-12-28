@@ -196,6 +196,53 @@ static SpriteManager* s_spriteManager;
         }
     }
 
+    #pragma mark- Swarm Stuff
+    -(void)updateAllEnemySwarmSeekPosition:(CGPoint)p
+    {
+        //for a swarm effect enemy sprites must must keep a maximum/minimum distance from each other
+        for(MinionSprite* enemySprite in self.enemiesArray){
+            CGPoint adjustedPoint = ccp(p.x/PTM_RATIO, p.y/PTM_RATIO);
+            b2Vec2 enemPos = enemySprite.getPhysicsBody->GetPosition();
+            CGPoint vel = CGPointZero;
+            if(fabsf(enemPos.x - adjustedPoint.x) > 1){
+                vel.x = (adjustedPoint.x - enemPos.x);
+            }
+            if(fabsf(enemPos.y - adjustedPoint.y) > 1){
+                vel.y = (adjustedPoint.y - enemPos.y);
+            }
+            vel.x = clampf(vel.x, -kEnemyMaxSpeed, kEnemyMaxSpeed);
+            vel.y = clampf(vel.y, -kEnemyMaxSpeed, kEnemyMaxSpeed);
+            b2Body *b = enemySprite.getPhysicsBody;
+            b->SetLinearVelocity(b2Vec2(vel.x,vel.y));
+            
+            [enemySprite updateForSwarm:[self.enemiesArray mutableCopy]];
+        }
+    }
+
+    -(void)updateAllEnemySwarmAvoidPosition:(CGPoint)p
+    {
+        //for a swarm effect enemy sprites must must keep a maximum/minimum distance from each other
+        for(MinionSprite* enemySprite in self.enemiesArray){
+            CGPoint adjustedPoint = ccp(p.x/PTM_RATIO, p.y/PTM_RATIO);
+            b2Vec2 enemPos = enemySprite.getPhysicsBody->GetPosition();
+            CGPoint vel = CGPointZero;
+            if(fabsf(enemPos.x - adjustedPoint.x) > 1){
+                vel.x = -(adjustedPoint.x - enemPos.x);
+            }
+            if(fabsf(enemPos.y - adjustedPoint.y) > 1){
+                vel.y = -(adjustedPoint.y - enemPos.y);
+            }
+            vel.x = clampf(vel.x, -kEnemyMaxSpeed, kEnemyMaxSpeed);
+            vel.y = clampf(vel.y, -kEnemyMaxSpeed, kEnemyMaxSpeed);
+            b2Body *b = enemySprite.getPhysicsBody;
+            b->SetLinearVelocity(b2Vec2(vel.x,vel.y));
+            
+            [enemySprite updateForSwarm:[self.enemiesArray mutableCopy]];
+        }
+    }
+
+
+
     -(void)removePhysicsSprite:(PhysicsSprite *)spriteToRemove
     {
         CCNode *parent = [self.worldLayer getChildByTag:kTagParentNode];

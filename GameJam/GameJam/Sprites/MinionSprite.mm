@@ -14,8 +14,8 @@
 
 //distance from center point the enemy should swarm,
 //minimum should probably be greater than the dimensions, as a rule
-#define kMinionMAX_SWARMDIST 60.0f
-#define kMinionMIN_SWARMDIST 40.0f
+#define kMinionMAX_SWARMDIST 6.0f
+#define kMinionMIN_SWARMDIST 5.0f
 
 
 @implementation MinionSprite
@@ -101,29 +101,35 @@
 -(void) updateForSwarm:(NSMutableArray*)enemiesArray
 {
     //NOTE: this is TRUE SWARM BEHAVIOR, every enemy could be checking the position of every other enemy. It's O(N^2) so this could get slow.
-    //first and foremost, remove self from the running.
-    [enemiesArray removeObject:self];
     //we already have our velocity set towards the character, so we shouldn't change our direction too much
     b2Vec2 initialVel = self.getPhysicsBody->GetLinearVelocity();
-    b2Vec2 deltaVel = b2Vec2(0,0);
+    float correctionSpeed = 4 / [enemiesArray count];
+    
+    CGPoint deltaVel = CGPointZero;
     b2Vec2 myPos = self.getPhysicsBody->GetPosition();
+    CGPoint myPosCG = CGPointMake(myPos.x, myPos.y);
     for (MinionSprite* enemySprite in enemiesArray) {
+        if(enemySprite == self) continue; //we don't need ourselves
         b2Vec2 enemPos = enemySprite.getPhysicsBody->GetPosition();
-        if(enemPos.y < myPos.y + kMinionMIN_SWARMDIST){
+        CGPoint enemPosCG = CGPointMake(enemPos.x, enemPos.y);
+        CGPoint direction = ccpSub(myPosCG, enemPosCG);
+        float distance = ccpLength(direction);
         
-        }else if (enemPos.y > myPos.y + kMinionMAX_SWARMDIST)
-        {
-        
+        if(distance < kMinionMIN_SWARMDIST){
+            //move away
+            direction = ccpNormalize(direction);
+            deltaVel = ccpAdd(deltaVel, ccpMult(direction, correctionSpeed));
         }
-        
-        if(enemPos.x < myPos.x + kMinionMIN_SWARMDIST){
-            
-        }else if (enemPos.x > myPos.x + kMinionMAX_SWARMDIST)
+        else if (distance > kMinionMAX_SWARMDIST)
         {
-            
+            //move towards
+            direction = ccpNeg(ccpNormalize(direction));
+            deltaVel = ccpAdd(deltaVel, ccpMult(direction, correctionSpeed));
         }
     }
-    b2Vec2 finalVel = (initialVel + deltaVel);
+    b2Vec2 finalVel = (initialVel + b2Vec2(deltaVel.x, deltaVel.y));
+    //update for swarm adjusted velocity;
+    self.getPhysicsBody->SetLinearVelocity(finalVel);
 }
 
 

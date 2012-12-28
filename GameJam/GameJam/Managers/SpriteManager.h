@@ -35,6 +35,11 @@
     -(void)updateAllEnemySeekPosition:(CGPoint)p; //no flags for this, just setting velocity
     -(void)updateAllEnemyAvoidPosition:(CGPoint)p;
 
+    // MaxSwarmDistace & MinSwarmDistace defined in enemySprite
+    -(void)updateAllEnemySwarmSeekPosition:(CGPoint)p;
+    -(void)updateAllEnemySwarmAvoidPosition:(CGPoint)p;
+
+
 -(void)removePhysicsSprite:(PhysicsSprite*)spriteToRemove;
 -(void)setVelocityOfBullet:(BulletSprite *)bulletToChange newVelocity:(CGPoint)newVel relativeToCharSprite:(BOOL)adjust;
 
