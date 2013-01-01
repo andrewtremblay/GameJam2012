@@ -22,7 +22,11 @@ enum {
 @interface ControlManager : NSObject
 +(ControlManager*)shared; //singleton
 
-
+//device check variables
+-(bool)isIphone;
+-(bool)isIpad;
+-(bool)isIpadRetina;
+-(bool)isIpadMini;
 
 //the character
 @property (nonatomic, strong) CharacterSprite* charSprite;

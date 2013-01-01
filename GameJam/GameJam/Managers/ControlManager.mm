@@ -37,6 +37,32 @@ static ControlManager* s_controlManager;
     return s_controlManager;
 }
 
+//device check variables
+-(bool)isIphone
+{
+    return[[[UIDevice currentDevice] model] conformsToProtocol:NSProtocolFromString(@"iPhone*")];
+
+}
+
+-(bool)isIpad
+{
+    return[[[UIDevice currentDevice] model] conformsToProtocol:NSProtocolFromString(@"iPad*")];
+}
+
+-(bool)isIpadRetina
+{
+    //check screen size also
+    
+    return [self isIpad] && true;
+}
+
+-(bool)isIpadMini
+{
+    return[[[UIDevice currentDevice] model] conformsToProtocol:NSProtocolFromString(@"iPad 2,5")];    
+}
+
+
+
 
 //control agnostic behavior
 
