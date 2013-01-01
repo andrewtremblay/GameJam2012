@@ -174,8 +174,9 @@ static ControlManager* s_controlManager;
 //touch/swipe handling
 - (void)pressFoundAtPoint:(CGPoint)p
 {
-//    [self setCharVelocityRelativeToPress:p];
-    [self shootAtPoint:p];
+    //[self setCharVelocityRelativeToPress:p];
+    [self lookAtPoint:p];
+    //[self shootAtPoint:p];
     //    [self moveCharToPoint:p];
 }
 
@@ -224,6 +225,9 @@ static ControlManager* s_controlManager;
         _endPoint = location;
     }
     [self setCharVelocityRelativeToPress:_endPoint];
+    [self lookAtPoint:_endPoint];
+    
+    
     if (ccpLengthSQ(ccpSub(_startPoint, _endPoint)) > 25)
     {        
 
