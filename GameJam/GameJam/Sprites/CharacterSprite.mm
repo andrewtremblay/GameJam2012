@@ -53,9 +53,9 @@
     switch (vertCount) {
         case 3: {
             b2Vec2 vertices[3];
-            vertices[0].Set(w/2 / PTM_RATIO,-w/2  / PTM_RATIO);
             vertices[1].Set(0.0f / PTM_RATIO,w/2 /PTM_RATIO);
             vertices[2].Set(-w/2 /PTM_RATIO,-w/2 /PTM_RATIO);
+            vertices[0].Set(w/2 / PTM_RATIO,-w/2  / PTM_RATIO);
             shape.Set(vertices, vertCount);
             self.vert = vertices;
         }break;

@@ -11,7 +11,8 @@
 
 enum {
     kPointMove,
-    kTiltMove    
+    kTiltMove,
+    kSwipeMove
 };// controlMoveSetting;
 
 enum {
@@ -37,10 +38,13 @@ enum {
 
 //control agnostic behavior
 -(void)moveCharToPoint:(CGPoint)p;
+-(void)lookAtPoint:(CGPoint)p;
 -(void)shootAtPoint:(CGPoint)p;
 
--(void)moveInDirection:(CGPoint)p;//TODO, VECTOR PROBABLY
--(void)shootInDirection:(CGPoint)p;//TODO, VECTOR PROBABLY
+//p is already relative to the ship
+-(void)moveInDirection:(CGPoint)p;
+-(void)lookInDirection:(CGPoint)p;
+-(void)shootInDirection:(CGPoint)p;
 
 
 -(void)setCharVelocityRelativeToPress:(CGPoint)pointOfPress;

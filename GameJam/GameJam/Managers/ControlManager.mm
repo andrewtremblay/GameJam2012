@@ -69,26 +69,53 @@ static ControlManager* s_controlManager;
 -(void)moveCharToPoint:(CGPoint)p
 {
     CGPoint adjustedPoint = p;// [[CCDirector sharedDirector] convertToGL:p];
-    self.charSprite.getPhysicsBody->SetTransform(b2Vec2(adjustedPoint.x/PTM_RATIO, adjustedPoint.y/PTM_RATIO),
-                                                 self.charSprite.getPhysicsBody->GetAngle() );
+    self.charSprite.getPhysicsBody->SetTransform(
+            b2Vec2(adjustedPoint.x/PTM_RATIO, adjustedPoint.y/PTM_RATIO),
+            self.charSprite.getPhysicsBody->GetAngle() );
 //    [self.charSprite setPosition:p];
 }
 
+-(void)lookAtPoint:(CGPoint)p
+{
+    //get player position relative to point to look towards
+    b2Body *body = self.charSprite.getPhysicsBody;
+    body->SetAngularVelocity(0);
+    b2Vec2 charTrans = body->GetPosition();
+    int offRealX = p.x/PTM_RATIO - charTrans.x;
+    int offRealY = p.y/PTM_RATIO - charTrans.y;
+    [self lookInDirection:CGPointMake(offRealX, offRealY)];
+}
+
+
 -(void)shootAtPoint:(CGPoint)p
 {
-
+    [self lookAtPoint:p];
+    [self.charSprite shoot];
 }
+
 
 -(void)moveInDirection:(CGPoint)p
 {
 
 }
 
+-(void)lookInDirection:(CGPoint)p
+{
+    b2Body *body = self.charSprite.getPhysicsBody;
+    float desiredAngle = atan2f(-p.x, p.y);
+    
+    //TODO: DELAYING THE ROTATION
+    //get current angle offset
+    //    float bodyAngle = body->GetAngle();
+    //    float totalRotation =  desiredAngle ;
+    body->SetTransform( body->GetPosition(), desiredAngle );
+
+}
+
 -(void)shootInDirection:(CGPoint)p
 {
-    
-    
-    
+    [self lookInDirection:p];
+    [self.charSprite shoot];
 }
 
 
@@ -147,7 +174,8 @@ static ControlManager* s_controlManager;
 //touch/swipe handling
 - (void)pressFoundAtPoint:(CGPoint)p
 {
-    [self setCharVelocityRelativeToPress:p];
+//    [self setCharVelocityRelativeToPress:p];
+    [self shootAtPoint:p];
     //    [self moveCharToPoint:p];
 }
 
