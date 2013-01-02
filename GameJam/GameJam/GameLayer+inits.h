@@ -10,6 +10,7 @@
 
 @interface GameLayer (inits)
 -(void) initPhysics;
+-(void) initMenu;
 -(void) initGroundBody;
 -(void) initPlayer;
 

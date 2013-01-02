@@ -11,6 +11,10 @@
 #import "SpriteManager.h"
 #import "ControlManager.h"
 #import "EventsManager.h"
+#import "MenuManager.h"
+
+
+#define MENU_BAR_HEIGHT 55
 
 @implementation GameLayer (inits)
 -(void) initPhysics
@@ -35,7 +39,8 @@
 	//		flags += b2Draw::e_pairBit;
 	//		flags += b2Draw::e_centerOfMassBit;
 	m_debugDraw->SetFlags(flags);
-	
+
+    [self initMenu];
     [self initGroundBody];
     
 }
@@ -48,12 +53,29 @@
     [[ControlManager shared] setCharSprite:charSprite];        
 }
 
+-(void) initMenu
+{
+    //due to complexity, offset to its own manager
+    [[MenuManager shared] makeMenuInGameLayer:self];
+}
+
+-(void) onClick:(id)thingClicked
+{
+    
+}
+
 -(void) initGroundBody
 {
     CGSize s = [[CCDirector sharedDirector] winSize];
+    
+    //remember, anchor point is lower left
+    CGRect box = CGRectMake(0, 0,
+                            s.width/PTM_RATIO,
+                            (s.height - MENU_BAR_HEIGHT)/PTM_RATIO);
+    
 	// Define the ground body.
 	b2BodyDef groundBodyDef;
-	groundBodyDef.position.Set(0, 0); // bottom-left corner
+	groundBodyDef.position.Set(box.origin.x, box.origin.y); // bottom-left corner
 	// Call the body factory which allocates memory for the ground body
 	// from a pool and creates the ground box shape (also from a pool).
 	// The body is also added to the world.
@@ -61,7 +83,8 @@
 	// Define the ground box shape.
 	b2EdgeShape groundBox;		
 	// bottom
-	groundBox.Set(b2Vec2(0,0), b2Vec2(s.width/PTM_RATIO,0));
+	groundBox.Set(b2Vec2(box.origin.x, box.origin.y),
+                  b2Vec2(box.size.width, box.origin.y));
 	b2Fixture* bottom = groundBody->CreateFixture(&groundBox,0);
     b2Filter fB = bottom->GetFilterData();
     fB.categoryBits = kBackgroundCategoryBit;
@@ -69,20 +92,23 @@
     //    [[bottom filter] setCategoryBits:kBackgroundCategoryBit];
     
     // top
-	groundBox.Set(b2Vec2(0,s.height/PTM_RATIO), b2Vec2(s.width/PTM_RATIO,s.height/PTM_RATIO));
+	groundBox.Set(b2Vec2(box.origin.x,      box.size.height),
+                  b2Vec2(box.size.width,    box.size.height));
 	b2Fixture* top = groundBody->CreateFixture(&groundBox,0);
     b2Filter fT = top->GetFilterData();
     fT.categoryBits = kBackgroundCategoryBit;
     top->SetFilterData(fT);
 	// left
-	groundBox.Set(b2Vec2(0,s.height/PTM_RATIO), b2Vec2(0,0));
+	groundBox.Set(b2Vec2(box.origin.x,      box.size.height),
+                  b2Vec2(box.origin.x,      box.origin.y));
 	b2Fixture* left = groundBody->CreateFixture(&groundBox,0);
     b2Filter fL = left->GetFilterData();
     fL.categoryBits = kBackgroundCategoryBit;
     left->SetFilterData(fL);
     
 	// right
-	groundBox.Set(b2Vec2(s.width/PTM_RATIO,s.height/PTM_RATIO), b2Vec2(s.width/PTM_RATIO,0));
+	groundBox.Set(b2Vec2(box.size.width,    box.size.height),
+                  b2Vec2(box.size.width,    box.origin.y));
 	b2Fixture* right = groundBody->CreateFixture(&groundBox,0);
     b2Filter fR = right->GetFilterData();
     fR.categoryBits = kBackgroundCategoryBit;

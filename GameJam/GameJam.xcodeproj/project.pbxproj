@@ -9,8 +9,10 @@
 /* Begin PBXBuildFile section */
 		3133A56F160CCBED00C3BEC2 /* ShapeBulletVars.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3133A56E160CCBED00C3BEC2 /* ShapeBulletVars.plist */; };
 		3136375F160017DE003BC4B5 /* SpriteManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3136375E160017DE003BC4B5 /* SpriteManager.mm */; };
+		3171A54E16938E9B005D929C /* MenuManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3171A54D16938E9B005D929C /* MenuManager.mm */; };
 		31A2C64D160110D100526786 /* GameLayer+inits.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31A2C64C160110D100526786 /* GameLayer+inits.mm */; };
 		31DB2F6C168C2C2200008A70 /* README.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 31DB2F6B168C2C2200008A70 /* README.rtf */; };
+		31E0053E169388EA009CEC33 /* whiteTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 31E0053D169388EA009CEC33 /* whiteTexture.png */; };
 		31F376FA16865504003A26F7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31F376F916865504003A26F7 /* Default-568h@2x.png */; };
 		F0287649160010F0007CFA9E /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F0287648160010F0007CFA9E /* QuartzCore.framework */; };
 		F028764B160010F0007CFA9E /* OpenGLES.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F028764A160010F0007CFA9E /* OpenGLES.framework */; };
@@ -201,9 +203,12 @@
 		3136375D160017DE003BC4B5 /* SpriteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteManager.h; path = Managers/SpriteManager.h; sourceTree = "<group>"; };
 		3136375E160017DE003BC4B5 /* SpriteManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SpriteManager.mm; path = Managers/SpriteManager.mm; sourceTree = "<group>"; };
 		3136376516002692003BC4B5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		3171A54C16938E9B005D929C /* MenuManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuManager.h; path = Managers/MenuManager.h; sourceTree = "<group>"; };
+		3171A54D16938E9B005D929C /* MenuManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MenuManager.mm; path = Managers/MenuManager.mm; sourceTree = "<group>"; };
 		31A2C64A1601108A00526786 /* GameLayer+inits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameLayer+inits.h"; sourceTree = "<group>"; };
 		31A2C64C160110D100526786 /* GameLayer+inits.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "GameLayer+inits.mm"; sourceTree = "<group>"; };
 		31DB2F6B168C2C2200008A70 /* README.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = README.rtf; path = Managers/README.rtf; sourceTree = "<group>"; };
+		31E0053D169388EA009CEC33 /* whiteTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteTexture.png; path = Resources/whiteTexture.png; sourceTree = "<group>"; };
 		31F376F916865504003A26F7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		F0287644160010F0007CFA9E /* Verts (Debug).app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Verts (Debug).app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		F0287648160010F0007CFA9E /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
@@ -671,6 +676,7 @@
 		F028765B160010F0007CFA9E /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				31E0053D169388EA009CEC33 /* whiteTexture.png */,
 				F0287899160021E3007CFA9E /* blackTexture.png */,
 				F028765C160010F0007CFA9E /* Default.png */,
 				F028765E160010F0007CFA9E /* Default-Landscape~ipad.png */,
@@ -1220,6 +1226,8 @@
 				F028788C16001584007CFA9E /* EventsManager.mm */,
 				F028788E16001592007CFA9E /* ControlManager.h */,
 				F028788F16001592007CFA9E /* ControlManager.mm */,
+				3171A54C16938E9B005D929C /* MenuManager.h */,
+				3171A54D16938E9B005D929C /* MenuManager.mm */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -1292,6 +1300,7 @@
 				3133A56F160CCBED00C3BEC2 /* ShapeBulletVars.plist in Resources */,
 				31F376FA16865504003A26F7 /* Default-568h@2x.png in Resources */,
 				31DB2F6C168C2C2200008A70 /* README.rtf in Resources */,
+				31E0053E169388EA009CEC33 /* whiteTexture.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1461,6 +1470,7 @@
 				F0287893160016AD007CFA9E /* GameLayer.mm in Sources */,
 				3136375F160017DE003BC4B5 /* SpriteManager.mm in Sources */,
 				31A2C64D160110D100526786 /* GameLayer+inits.mm in Sources */,
+				3171A54E16938E9B005D929C /* MenuManager.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
