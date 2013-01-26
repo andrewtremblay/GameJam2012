@@ -37,5 +37,15 @@
 	[self setPhysicsBody:polyBody];
 }
 
+-(bool)outOfBounds
+{
+    CGSize s = [[CCDirector sharedDirector] winSize];
+    b2Vec2 bodyPos = self.getPhysicsBody->GetPosition();
+   // NSLog(@"%f, %f", bodyPos.x, bodyPos.y);
+     
+    
+    return (bodyPos.x > s.width/PTM_RATIO  || bodyPos.x < 0)
+    || (bodyPos.y > s.height/PTM_RATIO  || bodyPos.y < 0);
+}
 
 @end

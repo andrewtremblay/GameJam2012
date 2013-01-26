@@ -15,5 +15,6 @@
 @property (nonatomic, assign)BOOL shot;
 
 - (void)updatePhysicsBoxWithPoint:(CGPoint)p;
+-(bool)outOfBounds;
 
 @end
