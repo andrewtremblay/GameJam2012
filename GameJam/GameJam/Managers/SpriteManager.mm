@@ -11,6 +11,7 @@
 
 
 #define kEnemyMaxSpeed 5.0f
+#define kPlayerMaxBullets 50
 
 static SpriteManager* s_spriteManager;
 
@@ -281,14 +282,22 @@ static SpriteManager* s_spriteManager;
 
     -(void)cleanBullets
     {
-        NSMutableArray *toRemove = [NSMutableArray array]; 
+        NSMutableArray *toRemove = [NSMutableArray array];
         for (BulletSprite* bS in self.bulletArray) {
-            if (bS.shot) {
+            if (bS.shot || ! bS.visible || bS.outOfBounds) {
                 [toRemove addObject:bS];
-                [self removePhysicsSprite:bS];
             }
         }
+        //check for oldest bullets, remove them
+        if((self.bulletArray.count - toRemove.count) > kPlayerMaxBullets)
+        {
+            //remove the X oldest bullets from the world
+        }
         [self.bulletArray removeObjectsInArray:toRemove];
+        for (BulletSprite* bS in toRemove) {
+            [self removePhysicsSprite:bS];
+        }
+
     }
 
 
