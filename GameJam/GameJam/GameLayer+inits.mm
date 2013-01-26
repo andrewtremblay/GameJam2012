@@ -69,7 +69,7 @@
     CGSize s = [[CCDirector sharedDirector] winSize];
     
     //remember, anchor point is lower left
-    CGRect box = CGRectMake(0, 0,
+    CGRect box = CGRectMake(0, MENU_BAR_HEIGHT,
                             s.width/PTM_RATIO,
                             (s.height - MENU_BAR_HEIGHT)/PTM_RATIO);
     
