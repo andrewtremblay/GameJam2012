@@ -28,7 +28,7 @@ static MenuManager* s_menuManager;
 {
     //menu items shouldn't be affected by gravity, so we shouldn't make them b2Bodys
     CGSize s = [[CCDirector sharedDirector] winSize];
-    CCSprite *menuBg = [CCSprite spriteWithFile:@"whiteTexture.png" rect:CGRectMake( s.width/2,      s.height,
+    CCSprite *menuBg = [CCSprite spriteWithFile:@"whiteTexture.png" rect:CGRectMake( s.width/2,      MENU_BAR_HEIGHT,
                     s.width,        MENU_BAR_HEIGHT)];
     menuBg.position = CGPointMake(s.width/2,
                                   s.height - menuBg.contentSize.height/2);
