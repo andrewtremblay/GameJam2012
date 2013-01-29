@@ -23,10 +23,12 @@ enum gameState {
 
 
 enum groupEnemyAiState {
-    aiSeekCharacter = 0,  //basic movement, ignore other sprite positions
-    aiAvoidCharacter = 1,
-    aiSwarmSeekCharacter = 2, //swarm movement, basic boid-like behavior
-    aiSwarmAvoidCharacter = 3
+    aiSeekCharacter,        //basic movement, ignore other sprite positions
+    aiAvoidCharacter,
+    aiSwarmSeekCharacter,   //swarm movement, basic boid-like behavior
+    aiSwarmAvoidCharacter,
+    aiFreezeMovement,       //Other useful movement to make all the enemy sprites do
+    aiHoldAndTurn
 };
 
 #pragma mark - EventsManager

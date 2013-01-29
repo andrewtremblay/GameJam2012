@@ -40,14 +40,20 @@ static EventsManager* s_eventsManager;
 
     -(void)GAME_OVER {
         self.mainGameState = gameOverScreen;
+        self.enemyMode = aiHoldAndTurn;
     }
 
     -(void)GAME_PAUSE {
         self.mainGameState = gamePauseMenu;
+        [[CCDirector sharedDirector] stopAnimation];
+        [[CCDirector sharedDirector] pause];
     }
 
     -(void)GAME_RESUME { //any resuming logic
        self.mainGameState = gameRunning;
+        [[CCDirector sharedDirector] stopAnimation];
+        [[CCDirector sharedDirector] resume];
+        [[CCDirector sharedDirector] startAnimation];
     }
 
     -(void)GAME_QUIT {
