@@ -12,7 +12,19 @@
 
 @interface MenuManager: NSObject
     +(MenuManager*)shared;
+    @property (nonatomic, assign) CCMenu *gameMenu;
+
+    @property (nonatomic, assign) CCMenu *gameOverMenu;
+
+
+
     -(void)makeMenuInGameLayer:(GameLayer*)gameLayer;
+
+    -(void)showGameOverMenu;
+    -(void)hideGameOverMenu;
+
+    -(void)showInGameMenu;
+    -(void)hideInGameMenu;
+
     -(void)doNothing;
-    -(void)onClick:(id)whatevs;
 @end
