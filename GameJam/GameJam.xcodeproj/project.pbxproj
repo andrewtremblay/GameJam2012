@@ -13,12 +13,6 @@
 		31A2C64D160110D100526786 /* GameLayer+inits.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31A2C64C160110D100526786 /* GameLayer+inits.mm */; };
 		31AD2D2616B6781F00B1E851 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 31AD2D2516B6781F00B1E851 /* gear.png */; };
 		31AD2D2816B6791000B1E851 /* skull.png in Resources */ = {isa = PBXBuildFile; fileRef = 31AD2D2716B6791000B1E851 /* skull.png */; };
-		31AD2D3D16B6835500B1E851 /* libvunglepub.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 31AD2D2B16B6835500B1E851 /* libvunglepub.a */; };
-		31AD2D3E16B6835500B1E851 /* vunglepubsdk.markdown in Resources */ = {isa = PBXBuildFile; fileRef = 31AD2D2D16B6835500B1E851 /* vunglepubsdk.markdown */; };
-		31AD2D3F16B6835500B1E851 /* vg_button_close.png in Resources */ = {isa = PBXBuildFile; fileRef = 31AD2D3616B6835500B1E851 /* vg_button_close.png */; };
-		31AD2D4016B6835500B1E851 /* vg_button_mute_plain.png in Resources */ = {isa = PBXBuildFile; fileRef = 31AD2D3716B6835500B1E851 /* vg_button_mute_plain.png */; };
-		31AD2D4116B6835500B1E851 /* vg_button_mute_selected.png in Resources */ = {isa = PBXBuildFile; fileRef = 31AD2D3816B6835500B1E851 /* vg_button_mute_selected.png */; };
-		31AD2D4216B6835500B1E851 /* VGSVProgressHUD.m in Sources */ = {isa = PBXBuildFile; fileRef = 31AD2D3B16B6835500B1E851 /* VGSVProgressHUD.m */; };
 		31DB2F6C168C2C2200008A70 /* README.rtf in Resources */ = {isa = PBXBuildFile; fileRef = 31DB2F6B168C2C2200008A70 /* README.rtf */; };
 		31E0053E169388EA009CEC33 /* whiteTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = 31E0053D169388EA009CEC33 /* whiteTexture.png */; };
 		31F376FA16865504003A26F7 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 31F376F916865504003A26F7 /* Default-568h@2x.png */; };
@@ -217,21 +211,6 @@
 		31A2C64C160110D100526786 /* GameLayer+inits.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "GameLayer+inits.mm"; sourceTree = "<group>"; };
 		31AD2D2516B6781F00B1E851 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
 		31AD2D2716B6791000B1E851 /* skull.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skull.png; sourceTree = "<group>"; };
-		31AD2D2B16B6835500B1E851 /* libvunglepub.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libvunglepub.a; sourceTree = "<group>"; };
-		31AD2D2D16B6835500B1E851 /* vunglepubsdk.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = vunglepubsdk.markdown; sourceTree = "<group>"; };
-		31AD2D2F16B6835500B1E851 /* VGAdType.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGAdType.h; sourceTree = "<group>"; };
-		31AD2D3016B6835500B1E851 /* VGAssertMacros.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGAssertMacros.h; sourceTree = "<group>"; };
-		31AD2D3116B6835500B1E851 /* VGPlayData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGPlayData.h; sourceTree = "<group>"; };
-		31AD2D3216B6835500B1E851 /* VGStatusData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGStatusData.h; sourceTree = "<group>"; };
-		31AD2D3316B6835500B1E851 /* VGUserData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGUserData.h; sourceTree = "<group>"; };
-		31AD2D3416B6835500B1E851 /* VGVunglePub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGVunglePub.h; sourceTree = "<group>"; };
-		31AD2D3616B6835500B1E851 /* vg_button_close.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_button_close.png; sourceTree = "<group>"; };
-		31AD2D3716B6835500B1E851 /* vg_button_mute_plain.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_button_mute_plain.png; sourceTree = "<group>"; };
-		31AD2D3816B6835500B1E851 /* vg_button_mute_selected.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = vg_button_mute_selected.png; sourceTree = "<group>"; };
-		31AD2D3916B6835500B1E851 /* VGConstants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGConstants.h; sourceTree = "<group>"; };
-		31AD2D3A16B6835500B1E851 /* VGSVProgressHUD.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VGSVProgressHUD.h; sourceTree = "<group>"; };
-		31AD2D3B16B6835500B1E851 /* VGSVProgressHUD.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VGSVProgressHUD.m; sourceTree = "<group>"; };
-		31AD2D3C16B6835500B1E851 /* vunglepub.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = vunglepub.h; sourceTree = "<group>"; };
 		31DB2F6B168C2C2200008A70 /* README.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; name = README.rtf; path = Managers/README.rtf; sourceTree = "<group>"; };
 		31E0053D169388EA009CEC33 /* whiteTexture.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = whiteTexture.png; path = Resources/whiteTexture.png; sourceTree = "<group>"; };
 		31F376F916865504003A26F7 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
@@ -627,7 +606,6 @@
 				F0287655160010F0007CFA9E /* Foundation.framework in Frameworks */,
 				F0287657160010F0007CFA9E /* CoreGraphics.framework in Frameworks */,
 				F0287659160010F0007CFA9E /* GameKit.framework in Frameworks */,
-				31AD2D3D16B6835500B1E851 /* libvunglepub.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -655,60 +633,6 @@
 				31E0053D169388EA009CEC33 /* whiteTexture.png */,
 			);
 			name = menu;
-			sourceTree = "<group>";
-		};
-		31AD2D2916B6835500B1E851 /* vunglepub */ = {
-			isa = PBXGroup;
-			children = (
-				31AD2D2A16B6835500B1E851 /* bin */,
-				31AD2D2C16B6835500B1E851 /* docs */,
-				31AD2D2E16B6835500B1E851 /* headers */,
-				31AD2D3516B6835500B1E851 /* resources */,
-				31AD2D3916B6835500B1E851 /* VGConstants.h */,
-				31AD2D3A16B6835500B1E851 /* VGSVProgressHUD.h */,
-				31AD2D3B16B6835500B1E851 /* VGSVProgressHUD.m */,
-				31AD2D3C16B6835500B1E851 /* vunglepub.h */,
-			);
-			path = vunglepub;
-			sourceTree = "<group>";
-		};
-		31AD2D2A16B6835500B1E851 /* bin */ = {
-			isa = PBXGroup;
-			children = (
-				31AD2D2B16B6835500B1E851 /* libvunglepub.a */,
-			);
-			path = bin;
-			sourceTree = "<group>";
-		};
-		31AD2D2C16B6835500B1E851 /* docs */ = {
-			isa = PBXGroup;
-			children = (
-				31AD2D2D16B6835500B1E851 /* vunglepubsdk.markdown */,
-			);
-			path = docs;
-			sourceTree = "<group>";
-		};
-		31AD2D2E16B6835500B1E851 /* headers */ = {
-			isa = PBXGroup;
-			children = (
-				31AD2D2F16B6835500B1E851 /* VGAdType.h */,
-				31AD2D3016B6835500B1E851 /* VGAssertMacros.h */,
-				31AD2D3116B6835500B1E851 /* VGPlayData.h */,
-				31AD2D3216B6835500B1E851 /* VGStatusData.h */,
-				31AD2D3316B6835500B1E851 /* VGUserData.h */,
-				31AD2D3416B6835500B1E851 /* VGVunglePub.h */,
-			);
-			path = headers;
-			sourceTree = "<group>";
-		};
-		31AD2D3516B6835500B1E851 /* resources */ = {
-			isa = PBXGroup;
-			children = (
-				31AD2D3616B6835500B1E851 /* vg_button_close.png */,
-				31AD2D3716B6835500B1E851 /* vg_button_mute_plain.png */,
-				31AD2D3816B6835500B1E851 /* vg_button_mute_selected.png */,
-			);
-			path = resources;
 			sourceTree = "<group>";
 		};
 		F0287639160010F0007CFA9E = {
@@ -790,7 +714,6 @@
 		F0287675160010F0007CFA9E /* libs */ = {
 			isa = PBXGroup;
 			children = (
-				31AD2D2916B6835500B1E851 /* vunglepub */,
 				F028778C160010F2007CFA9E /* LICENSE_cocos2d.txt */,
 				F028779B160010F2007CFA9E /* LICENSE_CocosDenshion.txt */,
 				F02877CD160010F2007CFA9E /* LICENSE_Kazmath.txt */,
@@ -1394,10 +1317,6 @@
 				31E0053E169388EA009CEC33 /* whiteTexture.png in Resources */,
 				31AD2D2616B6781F00B1E851 /* gear.png in Resources */,
 				31AD2D2816B6791000B1E851 /* skull.png in Resources */,
-				31AD2D3E16B6835500B1E851 /* vunglepubsdk.markdown in Resources */,
-				31AD2D3F16B6835500B1E851 /* vg_button_close.png in Resources */,
-				31AD2D4016B6835500B1E851 /* vg_button_mute_plain.png in Resources */,
-				31AD2D4116B6835500B1E851 /* vg_button_mute_selected.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1568,7 +1487,6 @@
 				3136375F160017DE003BC4B5 /* SpriteManager.mm in Sources */,
 				31A2C64D160110D100526786 /* GameLayer+inits.mm in Sources */,
 				3171A54E16938E9B005D929C /* MenuManager.mm in Sources */,
-				31AD2D4216B6835500B1E851 /* VGSVProgressHUD.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
