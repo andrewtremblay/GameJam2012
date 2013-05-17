@@ -1,0 +1,3 @@
+[submodule "Submodules/Tonic"]
+	path = Submodules/Tonic
+	url = git://github.com/TonicAudio/Tonic.git
