@@ -9,7 +9,12 @@
 /* Begin PBXBuildFile section */
 		3133A56F160CCBED00C3BEC2 /* ShapeBulletVars.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3133A56E160CCBED00C3BEC2 /* ShapeBulletVars.plist */; };
 		3136375F160017DE003BC4B5 /* SpriteManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3136375E160017DE003BC4B5 /* SpriteManager.mm */; };
+		3157D983174C526900FEC333 /* MusicManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3157D982174C526900FEC333 /* MusicManager.mm */; };
+		3157D987174C535B00FEC333 /* WickedSynth.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 3157D986174C535B00FEC333 /* WickedSynth.cpp */; };
 		3171A54E16938E9B005D929C /* MenuManager.mm in Sources */ = {isa = PBXBuildFile; fileRef = 3171A54D16938E9B005D929C /* MenuManager.mm */; };
+		3179282417E3E74600F73BB2 /* libTonic-iOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3179282117E3E73B00F73BB2 /* libTonic-iOS.a */; };
+		319201DC17E3EC6E00F9C8DC /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 319201DB17E3EC6E00F9C8DC /* CoreAudio.framework */; };
+		319201DE17E3EC7600F9C8DC /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 319201DD17E3EC7600F9C8DC /* Accelerate.framework */; };
 		31A2C64D160110D100526786 /* GameLayer+inits.mm in Sources */ = {isa = PBXBuildFile; fileRef = 31A2C64C160110D100526786 /* GameLayer+inits.mm */; };
 		31AD2D2616B6781F00B1E851 /* gear.png in Resources */ = {isa = PBXBuildFile; fileRef = 31AD2D2516B6781F00B1E851 /* gear.png */; };
 		31AD2D2816B6791000B1E851 /* skull.png in Resources */ = {isa = PBXBuildFile; fileRef = 31AD2D2716B6791000B1E851 /* skull.png */; };
@@ -200,13 +205,44 @@
 		F028789A160021E3007CFA9E /* blackTexture.png in Resources */ = {isa = PBXBuildFile; fileRef = F0287899160021E3007CFA9E /* blackTexture.png */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		3179281E17E3E73B00F73BB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3179281917E3E73B00F73BB2 /* TonicLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 01F72690171520F900EBB4BB;
+			remoteInfo = "Tonic-OSX";
+		};
+		3179282017E3E73B00F73BB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3179281917E3E73B00F73BB2 /* TonicLib.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = F23A7CF1171B3D2E00AE8353;
+			remoteInfo = "Tonic-iOS";
+		};
+		3179282217E3E74100F73BB2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 3179281917E3E73B00F73BB2 /* TonicLib.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = F23A7CF0171B3D2D00AE8353;
+			remoteInfo = "Tonic-iOS";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXFileReference section */
 		3133A56E160CCBED00C3BEC2 /* ShapeBulletVars.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = ShapeBulletVars.plist; path = HelperData/ShapeBulletVars.plist; sourceTree = "<group>"; };
 		3136375D160017DE003BC4B5 /* SpriteManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = SpriteManager.h; path = Managers/SpriteManager.h; sourceTree = "<group>"; };
 		3136375E160017DE003BC4B5 /* SpriteManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = SpriteManager.mm; path = Managers/SpriteManager.mm; sourceTree = "<group>"; };
 		3136376516002692003BC4B5 /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
+		3157D981174C525700FEC333 /* MusicManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MusicManager.h; path = Managers/MusicManager.h; sourceTree = "<group>"; };
+		3157D982174C526900FEC333 /* MusicManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MusicManager.mm; path = Managers/MusicManager.mm; sourceTree = "<group>"; };
+		3157D986174C535B00FEC333 /* WickedSynth.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = WickedSynth.cpp; sourceTree = "<group>"; };
 		3171A54C16938E9B005D929C /* MenuManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MenuManager.h; path = Managers/MenuManager.h; sourceTree = "<group>"; };
 		3171A54D16938E9B005D929C /* MenuManager.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = MenuManager.mm; path = Managers/MenuManager.mm; sourceTree = "<group>"; };
+		3179281917E3E73B00F73BB2 /* TonicLib.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = TonicLib.xcodeproj; path = ../Submodules/Tonic/lib/TonicLib.xcodeproj; sourceTree = "<group>"; };
+		319201D917E3EC6600F9C8DC /* CoreMotion.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMotion.framework; path = System/Library/Frameworks/CoreMotion.framework; sourceTree = SDKROOT; };
+		319201DB17E3EC6E00F9C8DC /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		319201DD17E3EC7600F9C8DC /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
 		31A2C64A1601108A00526786 /* GameLayer+inits.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GameLayer+inits.h"; sourceTree = "<group>"; };
 		31A2C64C160110D100526786 /* GameLayer+inits.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = "GameLayer+inits.mm"; sourceTree = "<group>"; };
 		31AD2D2516B6781F00B1E851 /* gear.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gear.png; sourceTree = "<group>"; };
@@ -596,6 +632,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				319201DE17E3EC7600F9C8DC /* Accelerate.framework in Frameworks */,
+				319201DC17E3EC6E00F9C8DC /* CoreAudio.framework in Frameworks */,
+				3179282417E3E74600F73BB2 /* libTonic-iOS.a in Frameworks */,
 				F028787C16001277007CFA9E /* GLKit.framework in Frameworks */,
 				F0287649160010F0007CFA9E /* QuartzCore.framework in Frameworks */,
 				F028764B160010F0007CFA9E /* OpenGLES.framework in Frameworks */,
@@ -612,6 +651,30 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3157D985174C534600FEC333 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+				3157D986174C535B00FEC333 /* WickedSynth.cpp */,
+			);
+			name = Music;
+			sourceTree = "<group>";
+		};
+		3157D996174C6FBB00FEC333 /* Tonic */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tonic;
+			sourceTree = "<group>";
+		};
+		3179281A17E3E73B00F73BB2 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				3179281F17E3E73B00F73BB2 /* libTonic-OSX.a */,
+				3179282117E3E73B00F73BB2 /* libTonic-iOS.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		31A2C64E160111E300526786 /* Layers */ = {
 			isa = PBXGroup;
 			children = (
@@ -638,6 +701,10 @@
 		F0287639160010F0007CFA9E = {
 			isa = PBXGroup;
 			children = (
+				319201DD17E3EC7600F9C8DC /* Accelerate.framework */,
+				319201DB17E3EC6E00F9C8DC /* CoreAudio.framework */,
+				319201D917E3EC6600F9C8DC /* CoreMotion.framework */,
+				3157D996174C6FBB00FEC333 /* Tonic */,
 				31F376F916865504003A26F7 /* Default-568h@2x.png */,
 				F028765A160010F0007CFA9E /* GameJam */,
 				F0287647160010F0007CFA9E /* Frameworks */,
@@ -656,6 +723,7 @@
 		F0287647160010F0007CFA9E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				3179281917E3E73B00F73BB2 /* TonicLib.xcodeproj */,
 				F028787B16001277007CFA9E /* GLKit.framework */,
 				F0287648160010F0007CFA9E /* QuartzCore.framework */,
 				F028764A160010F0007CFA9E /* OpenGLES.framework */,
@@ -673,6 +741,7 @@
 		F028765A160010F0007CFA9E /* GameJam */ = {
 			isa = PBXGroup;
 			children = (
+				3157D985174C534600FEC333 /* Music */,
 				31A2C64E160111E300526786 /* Layers */,
 				F028788A16001565007CFA9E /* Managers */,
 				F028787D16001495007CFA9E /* Sprites */,
@@ -1242,6 +1311,8 @@
 				F028788F16001592007CFA9E /* ControlManager.mm */,
 				3171A54C16938E9B005D929C /* MenuManager.h */,
 				3171A54D16938E9B005D929C /* MenuManager.mm */,
+				3157D981174C525700FEC333 /* MusicManager.h */,
+				3157D982174C526900FEC333 /* MusicManager.mm */,
 			);
 			name = Managers;
 			sourceTree = "<group>";
@@ -1260,6 +1331,7 @@
 			buildRules = (
 			);
 			dependencies = (
+				3179282317E3E74100F73BB2 /* PBXTargetDependency */,
 			);
 			name = GameJam;
 			productName = GameJam;
@@ -1272,7 +1344,7 @@
 		F028763B160010F0007CFA9E /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0440;
+				LastUpgradeCheck = 0460;
 			};
 			buildConfigurationList = F028763E160010F0007CFA9E /* Build configuration list for PBXProject "GameJam" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -1284,12 +1356,35 @@
 			mainGroup = F0287639160010F0007CFA9E;
 			productRefGroup = F0287645160010F0007CFA9E /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = 3179281A17E3E73B00F73BB2 /* Products */;
+					ProjectRef = 3179281917E3E73B00F73BB2 /* TonicLib.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
 				F0287643160010F0007CFA9E /* GameJam */,
 			);
 		};
 /* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		3179281F17E3E73B00F73BB2 /* libTonic-OSX.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libTonic-OSX.a";
+			remoteRef = 3179281E17E3E73B00F73BB2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		3179282117E3E73B00F73BB2 /* libTonic-iOS.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = "libTonic-iOS.a";
+			remoteRef = 3179282017E3E73B00F73BB2 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
 		F0287642160010F0007CFA9E /* Resources */ = {
@@ -1487,16 +1582,30 @@
 				3136375F160017DE003BC4B5 /* SpriteManager.mm in Sources */,
 				31A2C64D160110D100526786 /* GameLayer+inits.mm in Sources */,
 				3171A54E16938E9B005D929C /* MenuManager.mm in Sources */,
+				3157D983174C526900FEC333 /* MusicManager.mm in Sources */,
+				3157D987174C535B00FEC333 /* WickedSynth.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		3179282317E3E74100F73BB2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = "Tonic-iOS";
+			targetProxy = 3179282217E3E74100F73BB2 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		F0287876160010F3007CFA9E /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -1507,8 +1616,12 @@
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1518,6 +1631,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -1526,8 +1643,12 @@
 				);
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = "";
 				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRIVATE_HEADERS_FOLDER_PATH = "";
+				PUBLIC_HEADERS_FOLDER_PATH = "";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1537,16 +1658,25 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = NO;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GameJam/Prefix.pch;
-				HEADER_SEARCH_PATHS = "\"GameJam/libs/kazmath/include\"";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					"\"GameJam/libs/kazmath/include\"",
+					../Submodules/Tonic/src,
+				);
 				INFOPLIST_FILE = GameJam/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/GameJam/vunglepub/bin\"",
+					"\"$(SRCROOT)\"",
 				);
+				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
@@ -1561,15 +1691,24 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = YES;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = GameJam/Prefix.pch;
-				HEADER_SEARCH_PATHS = "\"GameJam/libs/kazmath/include\"";
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				HEADER_SEARCH_PATHS = (
+					"\"GameJam/libs/kazmath/include\"",
+					../Submodules/Tonic/src,
+				);
 				INFOPLIST_FILE = GameJam/Resources/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/GameJam/vunglepub/bin\"",
+					"\"$(SRCROOT)\"",
 				);
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
 				OTHER_LDFLAGS = (
 					"-lz",
 					"-ObjC",
