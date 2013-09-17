@@ -6,8 +6,14 @@
 //
 //
 
+#include "Tonic.h"
+
 @interface MusicManager: NSObject
     +(MusicManager*)shared;
+
+    -(void)playNoise;
+
+    @property WickedSynth::WickedSynth *mainSynth;
 
 @end
 
